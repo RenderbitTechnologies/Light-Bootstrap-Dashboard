@@ -1,0 +1,50 @@
+{
+    "name": "RenderbitTechnologies/LightBootstrapDashboard",
+    "type": "library",
+    "description": "Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5",
+    "keywords": [
+        "RenderbitTechnologies",
+        "LightBootstrapDashboard"
+    ],
+    "homepage": "https://github.com/RenderbitTechnologies/LightBootstrapDashboard",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renderbit Technologies",
+            "email": "contact@renderbit.com",
+            "homepage": "https://github.com/RenderbitTechnologies",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1",
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "RenderbitTechnologies\\LightBootstrapDashboard\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RenderbitTechnologies\\LightBootstrapDashboard\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
