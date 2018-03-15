@@ -13,7 +13,27 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Config
+        $this->publishes([
+            __DIR__.'/config/lbd.php' => config_path('lbd.php'),
+        ], 'config');
+
+        // Views
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'lbd');
+
+        $this->publishes([
+            __DIR__.'/resources/views' => resource_path('views/vendor/lbd'),
+        ], 'views');
+
+        // Assets
+        $this->publishes([
+            __DIR__.'/resources/assets' => public_path('vendor/lbd'),
+        ], 'public');
+
+        // Routes
+        if(config('lbd.load_demo_content')) {
+            $this->loadRoutesFrom(__DIR__.'/routes.php');
+        }
     }
 
     /**
@@ -23,6 +43,9 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Config
+        $this->mergeConfigFrom(
+            __DIR__.'/config/lbd.php', 'lbd'
+        );
     }
 }
