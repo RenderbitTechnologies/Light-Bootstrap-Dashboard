@@ -1,9 +1,9 @@
 <div class="sidebar" data-color="{{ config('lbd.sidebar_color') }}" data-image="{{ asset('vendor/lbd/img/sidebar-5.jpg') }}">
-<!--
-Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+    <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-Tip 2: you can also add an image using data-image tag
--->
+        Tip 2: you can also add an image using data-image tag
+    -->
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{ url('/') }}" class="simple-text logo-mini">

@@ -1,4 +1,4 @@
-<div class="card card-stats">
+<div class="card {{ $class_list or 'card-stats' }}">
     <div class="card-body">
         <div class="row">
             <div class="col-5">

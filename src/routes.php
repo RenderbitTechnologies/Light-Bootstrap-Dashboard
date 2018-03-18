@@ -1,7 +1,7 @@
 <?php
 
-Route::prefix('lbd')->group(function () {
+Route::prefix('lbd')->name('lbd.')->group(function () {
     Route::get('dashboard', function () {
-        return view('lbd::layout');
-    });
+        return view('lbd::dashboard');
+    })->name('dashboard');
 });
