@@ -5,11 +5,11 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Light Bootstrap Dashboard PRO - Premium Bootstrap 4 Admin Template by Creative Tim</title>
+    <title>@yield('title') | {{ env('APP_NAME') }}</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro" />
-    <!--  Social tags      -->
+    <!--  Social tags -->
     <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, light bootstrap 4 dashboard, frontend, responsive bootstrap dashboard">
     <meta name="description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
     <!-- Schema.org markup for Google+ -->
@@ -34,7 +34,7 @@
     <meta property="og:image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg" />
     <meta property="og:description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful." />
     <meta property="og:site_name" content="Creative Tim" />
-    <!--     Fonts and icons     -->
+    <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!-- CSS Files -->
@@ -48,280 +48,8 @@
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="../assets/img/sidebar-5.jpg">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-    Tip 2: you can also add an image using data-image tag
--->
-        <div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="{{ url('/') }}" class="simple-text logo-mini">
-                    {{ config('lbd.logo_mini') }}
-                </a>
-                <a href="{{ url('/') }}" class="simple-text logo-normal">
-                    {{ config('lbd.logo_full') }}
-                </a>
-            </div>
-            <div class="user">
-                <div class="photo">
-                    <img src="../assets/img/default-avatar.png" />
-                </div>
-                <div class="info ">
-                    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span>Tania Andrew
-                                <b class="caret"></b>
-                            </span>
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li>
-                                <a class="profile-dropdown" href="#pablo">
-                                    <span class="sidebar-mini">MP</span>
-                                    <span class="sidebar-normal">My Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="profile-dropdown" href="#pablo">
-                                    <span class="sidebar-mini">EP</span>
-                                    <span class="sidebar-normal">Edit Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="profile-dropdown" href="#pablo">
-                                    <span class="sidebar-mini">S</span>
-                                    <span class="sidebar-normal">Settings</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <ul class="nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="nc-icon nc-chart-pie-35"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
-                        <i class="nc-icon nc-app"></i>
-                        <p>
-                            Components
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="componentsExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/buttons.html">
-                                    <span class="sidebar-mini">B</span>
-                                    <span class="sidebar-normal">Buttons</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/grid.html">
-                                    <span class="sidebar-mini">GS</span>
-                                    <span class="sidebar-normal">Grid System</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/panels.html">
-                                    <span class="sidebar-mini">P</span>
-                                    <span class="sidebar-normal">Panels</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/sweet-alert.html">
-                                    <span class="sidebar-mini">SA</span>
-                                    <span class="sidebar-normal">Sweet Alert</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/notifications.html">
-                                    <span class="sidebar-mini">N</span>
-                                    <span class="sidebar-normal">Notifications</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/icons.html">
-                                    <span class="sidebar-mini">I</span>
-                                    <span class="sidebar-normal">Icons</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="components/typography.html">
-                                    <span class="sidebar-mini">T</span>
-                                    <span class="sidebar-normal">Typography</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#formsExamples">
-                        <i class="nc-icon nc-notes"></i>
-                        <p>
-                            Forms
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="formsExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="forms/regular.html">
-                                    <span class="sidebar-mini">Rf</span>
-                                    <span class="sidebar-normal">Regular Forms</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="forms/extended.html">
-                                    <span class="sidebar-mini">Ef</span>
-                                    <span class="sidebar-normal">Extended Forms</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="forms/validation.html">
-                                    <span class="sidebar-mini">Vf</span>
-                                    <span class="sidebar-normal">Validation Forms</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="forms/wizard.html">
-                                    <span class="sidebar-mini">W</span>
-                                    <span class="sidebar-normal">Wizard</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
-                        <i class="nc-icon nc-paper-2"></i>
-                        <p>
-                            Tables
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="tablesExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="tables/regular.html">
-                                    <span class="sidebar-mini">RT</span>
-                                    <span class="sidebar-normal">Regular Tables</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="tables/extended.html">
-                                    <span class="sidebar-mini">ET</span>
-                                    <span class="sidebar-normal">Extended Tables</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="tables/bootstrap-table.html">
-                                    <span class="sidebar-mini">BT</span>
-                                    <span class="sidebar-normal">Bootstrap Table</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="tables/datatables.net.html">
-                                    <span class="sidebar-mini">DT</span>
-                                    <span class="sidebar-normal">DataTables.net</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#mapsExamples">
-                        <i class="nc-icon nc-pin-3"></i>
-                        <p>
-                            Maps
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="mapsExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="maps/google.html">
-                                    <span class="sidebar-mini">GM</span>
-                                    <span class="sidebar-normal">Google Maps</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="maps/vector.html">
-                                    <span class="sidebar-mini">VM</span>
-                                    <span class="sidebar-normal">Vector maps</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="maps/fullscreen.html">
-                                    <span class="sidebar-mini">FSM</span>
-                                    <span class="sidebar-normal">Full Screen Map</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="charts.html">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                        <p>Charts</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="calendar.html">
-                        <i class="nc-icon nc-single-copy-04"></i>
-                        <p>Calendar</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
-                        <i class="nc-icon nc-puzzle-10"></i>
-                        <p>
-                            Pages
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse " id="pagesExamples">
-                        <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/login.html">
-                                    <span class="sidebar-mini">LP</span>
-                                    <span class="sidebar-normal">Login Page</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/register.html">
-                                    <span class="sidebar-mini">RP</span>
-                                    <span class="sidebar-normal">Register Page</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="pages/lock.html">
-                                    <span class="sidebar-mini">LSP</span>
-                                    <span class="sidebar-normal">Lock Screen Page</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a class="nav-link" href="pages/user.html">
-                                    <span class="sidebar-mini">UP</span>
-                                    <span class="sidebar-normal">User Page</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a class="nav-link" href="#lbd">
-                                    <span class="sidebar-mini">MCS</span>
-                                    <span class="sidebar-normal">More coming soon...</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    @include('lbd::inc.sidebar')
+    
     <div class="main-panel">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg ">
@@ -333,7 +61,7 @@
                             <i class="fa fa-navicon visible-on-sidebar-mini"></i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo"> Dashboard PRO </a>
+                    <a class="navbar-brand" href="#">@yield('title')</a>
                 </div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar burger-lines"></span>
@@ -434,54 +162,30 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <div class="icon-big text-center icon-warning">
-                                            <i class="nc-icon nc-light-3 text-success"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-7">
-                                        <div class="numbers">
-                                            <p class="card-category">Revenue</p>
-                                            <h4 class="card-title">$ 1,345</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer ">
-                                <hr>
-                                <div class="stats">
-                                    <i class="fa fa-calendar-o"></i> Last day
-                                </div>
-                            </div>
-                        </div>
+                        @component('lbd::inc.card')
+                            @slot('title', '$ 1,345')
+
+                            @slot('category', 'Revenue')
+
+                            @slot('icon', 'nc-icon nc-light-3 text-success')
+
+                            @slot('footer_icon', 'fa fa-calendar-o')
+
+                            @slot('footer', 'Last day')
+                        @endcomponent
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <div class="icon-big text-center icon-warning">
-                                            <i class="nc-icon nc-vector text-danger"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-7">
-                                        <div class="numbers">
-                                            <p class="card-category">Errors</p>
-                                            <h4 class="card-title">23</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer ">
-                                <hr>
-                                <div class="stats">
-                                    <i class="fa fa-clock-o"></i> In the last hour
-                                </div>
-                            </div>
-                        </div>
+                        @component('lbd::inc.card')
+                            @slot('title', '23')
+
+                            @slot('category', 'Errors')
+
+                            @slot('icon', 'nc-icon nc-vector text-danger')
+
+                            @slot('footer_icon', 'fa fa-clock-o')
+
+                            @slot('footer', 'In the last hour')
+                        @endcomponent
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="card card-stats">
@@ -525,7 +229,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/US.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/US.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>USA</td>
@@ -539,7 +243,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/DE.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/DE.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>Germany</td>
@@ -553,7 +257,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/AU.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/AU.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>Australia</td>
@@ -567,7 +271,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/GB.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/GB.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>United Kingdom</td>
@@ -581,7 +285,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/RO.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/RO.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>Romania</td>
@@ -595,7 +299,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="flag">
-                                                            <img src="../assets/img/flags/BR.png">
+                                                            <img src="{{ asset('vendor/lbd/img/flags/BR.png') }}">
                                                         </div>
                                                     </td>
                                                     <td>Brasil</td>
@@ -863,6 +567,7 @@
         </footer>
     </div>
 </div>
+@if(config('lbd.load_demo_content'))
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
         <a href="#" data-toggle="dropdown">
@@ -917,22 +622,22 @@
             <li class="header-title">Sidebar Images</li>
             <li class="active">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-1.jpg" alt="" />
+                    <img src="{{ asset('vendor/lbd/img/sidebar-1.jpg') }}" alt="" />
                 </a>
             </li>
             <li>
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-3.jpg" alt="" />
+                    <img src="{{ asset('vendor/lbd/img/sidebar-3.jpg') }}" alt="" />
                 </a>
             </li>
             <li>
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-4.jpg" alt="" />
+                    <img src="{{ asset('vendor/lbd/img/sidebar-4.jpg') }}" alt="" />
                 </a>
             </li>
             <li>
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="../assets/img/sidebar-5.jpg" alt="" />
+                    <img src="{{ asset('vendor/lbd/img/sidebar-5.jpg') }}" alt="" />
                 </a>
             </li>
             <li class="button-container">
@@ -958,6 +663,7 @@
         </ul>
     </div>
 </div>
+@endif
 </body>
 <!--   Core JS Files   -->
 <script src="{{ asset('vendor/lbd/js/core/jquery.3.2.1.min.js') }}"></script>
@@ -997,7 +703,7 @@
 <script src="{{ asset('vendor/lbd/js/plugins/jquery.dataTables.min.js') }}"></script>
 <!--  Full Calendar   -->
 <script src="{{ asset('vendor/lbd/js/plugins/fullcalendar.min.js') }}"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<!-- Control Center for Light Bootstrap Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('vendor/lbd/js/light-bootstrap-dashboard.js') }}?v=2.0.1"></script>
 @if(config('lbd.load_demo_content'))
 <!-- Light Dashboard DEMO methods, don't include it in your project! -->
@@ -1013,4 +719,20 @@
     });
 </script>
 @endif
+<script>
+    // analytics
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ config('lbd.google_analytics_key') }}']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 </html>

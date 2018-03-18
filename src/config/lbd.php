@@ -25,9 +25,18 @@ return [
     */
     'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY', 'AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU'),
 
+    'google_analytics_key' => env('GOOGLE_ANALYTICS_KEY', 'UA-46172202-1'),
+
     'load_demo_content' => env('LOAD_LBD_DEMO', false),
 
     'logo_mini' => 'RT',
 
     'logo_full' => 'Renderbit Tech',
+
+    // data-color="purple | blue | green | orange | red"
+    'sidebar_color' => 'orange',
+
+    'footer_logo' => 'Renderbit Tech',
+
+    'footer_link' => 'https://renderbit.com',
 ];
