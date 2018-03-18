@@ -1,4 +1,5 @@
 @if(config('lbd.load_demo_content'))
+
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
         <a href="#" data-toggle="dropdown">
@@ -94,7 +95,6 @@
         </ul>
     </div>
 </div>
-@endif
 
 @push('styles')
 <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -115,3 +115,5 @@
     });
 </script>
 @endpush
+
+@endif
