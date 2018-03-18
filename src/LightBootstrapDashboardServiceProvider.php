@@ -16,6 +16,7 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
         // Config
         $this->publishes([
             __DIR__.'/config/lbd.php' => config_path('lbd.php'),
+            __DIR__.'/config/sidebar-menu.php' => config_path('sidebar-menu.php'),
         ], 'config');
 
         // Views
@@ -34,6 +35,9 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
         if(config('lbd.load_demo_content')) {
             $this->loadRoutesFrom(__DIR__.'/routes.php');
         }
+
+        // Helpers
+        require_once __DIR__.'/helpers.php';
     }
 
     /**
@@ -46,6 +50,9 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
         // Config
         $this->mergeConfigFrom(
             __DIR__.'/config/lbd.php', 'lbd'
+        );
+        $this->mergeConfigFrom(
+            __DIR__.'/config/sidebar-menu.php', 'laravel-menu.settings'
         );
     }
 }

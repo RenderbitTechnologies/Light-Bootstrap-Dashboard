@@ -1,7 +1,8 @@
 <?php
 
-Route::prefix('lbd')->name('lbd.')->group(function () {
-    Route::get('dashboard', function () {
-        return view('lbd::dashboard');
-    })->name('dashboard');
+Route::group([
+    'namespace'  => 'RenderbitTechnologies\LightBootstrapDashboard\Controllers',
+    'prefix' => 'lbd',
+], function () {
+    Route::get('dashboard', 'LightBootstrapDashboardController@getDashboard')->name('lbd.dashboard');
 });
