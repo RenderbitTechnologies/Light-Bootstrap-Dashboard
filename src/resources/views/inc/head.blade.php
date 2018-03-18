@@ -1,14 +1,14 @@
-<meta charset="utf-8" />
+<meta charset="utf-8">
 <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('vendor/lbd/img/apple-icon.png') }}">
 <link rel="icon" type="image/png" href="{{ asset('vendor/lbd/img/favicon.png') }}">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'>
 
 <!-- Title -->
 <title>@yield('title') | {{ config('app.name') }}</title>
 
 <!-- Canonical SEO -->
-<link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro" />
+<link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro">
 
 <!--  Social tags -->
 <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, light bootstrap 4 dashboard, frontend, responsive bootstrap dashboard">
@@ -32,26 +32,21 @@
 <meta name="twitter:label2" content="Price">
 
 <!-- Open Graph data -->
-<meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="dashboard.html" />
-<meta property="og:image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg" />
-<meta property="og:description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful." />
-<meta property="og:site_name" content="Creative Tim" />
+<meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim">
+<meta property="og:type" content="article">
+<meta property="og:url" content="dashboard.html">
+<meta property="og:image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
+<meta property="og:description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
+<meta property="og:site_name" content="Creative Tim">
 
 @section('styles')
 <!-- Fonts and icons -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- CSS Files -->
-<link href="{{ asset('vendor/lbd/css/bootstrap.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('vendor/lbd/css/light-bootstrap-dashboard.css') }}?v=2.0.1" rel="stylesheet" />
-
-@if(config('lbd.load_demo_content'))
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="{{ asset('vendor/lbd/css/demo.css') }}" rel="stylesheet" />
-@endif
+<link href="{{ asset('vendor/lbd/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/lbd/css/light-bootstrap-dashboard.css') }}?v=2.0.1" rel="stylesheet">
 
 @stack('styles')
 

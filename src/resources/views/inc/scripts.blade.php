@@ -40,20 +40,6 @@
 <script src="{{ asset('vendor/lbd/js/plugins/fullcalendar.min.js') }}"></script>
 <!-- Control Center for Light Bootstrap Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('vendor/lbd/js/light-bootstrap-dashboard.js') }}?v=2.0.1"></script>
-@if(config('lbd.load_demo_content'))
-    <!-- Light Dashboard DEMO methods, don't include it in your project! -->
-    <script src="{{ asset('vendor/lbd/js/demo.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
-
-            demo.showNotification();
-
-            demo.initVectorMap();
-        });
-    </script>
-@endif
 
 @stack('scripts')
 
