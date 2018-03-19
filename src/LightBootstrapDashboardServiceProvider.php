@@ -35,9 +35,6 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
         if(config('lbd.load_demo_content')) {
             $this->loadRoutesFrom(__DIR__.'/routes.php');
         }
-
-        // Helpers
-        require_once __DIR__.'/helpers.php';
     }
 
     /**
