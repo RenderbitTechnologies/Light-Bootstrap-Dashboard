@@ -12,4 +12,5 @@ Route::group([
     Route::get('grid', 'LightBootstrapDashboardController@getGrid')->name('lbd.components.grid');
     Route::get('panels', 'LightBootstrapDashboardController@getPanels')->name('lbd.components.panels');
     Route::get('sweet-alert', 'LightBootstrapDashboardController@getSweetAlert')->name('lbd.components.sweet-alert');
+    Route::get('notifications', 'LightBootstrapDashboardController@getNotifications')->name('lbd.components.notifications');
 });

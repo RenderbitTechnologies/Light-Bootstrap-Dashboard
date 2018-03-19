@@ -24,13 +24,17 @@
                     </span>
                 </a>
                 <div class="collapse" id="collapseExample">
+                    @if(Menu::exists('sidebar_user_menu'))
                     {!! Menu::get('sidebar_user_menu')->asUl(['class' => 'nav']) !!}
+                    @endif
                 </div>
             </div>
         </div>
+        @if(Menu::exists('sidebar_main_menu'))
         <ul class="nav">
             @include('lbd::inc.sidebar-menu', ['items' => Menu::get('sidebar_main_menu')->roots()])
         </ul>
+        @endif
         <ul class="nav">
             <li class="nav-item ">
                 <a class="nav-link" href="dashboard.html">

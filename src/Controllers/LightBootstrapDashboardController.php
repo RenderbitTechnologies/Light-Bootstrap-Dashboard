@@ -33,6 +33,10 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::sweet-alert');
     }
 
+    public function getNotifications() {
+        return view('lbd::notifications');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -77,6 +81,9 @@ class LightBootstrapDashboardController extends Controller
 
             $components->add('<span class="sidebar-normal">Sweet Alert</span>', ['route' => 'lbd.components.sweet-alert'])
                 ->before('<span class="sidebar-mini">SA</span>');
+
+            $components->add('<span class="sidebar-normal">Notifications</span>', ['route' => 'lbd.components.notifications'])
+                ->before('<span class="sidebar-mini">N</span>');
         });
 
         // Footer
