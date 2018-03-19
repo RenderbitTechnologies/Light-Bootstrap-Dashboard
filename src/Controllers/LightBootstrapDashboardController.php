@@ -37,6 +37,14 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::notifications');
     }
 
+    public function getIcons() {
+        return view('lbd::icons');
+    }
+
+    public function getTypography() {
+        return view('lbd::typography');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -84,6 +92,12 @@ class LightBootstrapDashboardController extends Controller
 
             $components->add('<span class="sidebar-normal">Notifications</span>', ['route' => 'lbd.components.notifications'])
                 ->before('<span class="sidebar-mini">N</span>');
+
+            $components->add('<span class="sidebar-normal">Icons</span>', ['route' => 'lbd.components.icons'])
+                ->before('<span class="sidebar-mini">I</span>');
+
+            $components->add('<span class="sidebar-normal">Typography</span>', ['route' => 'lbd.components.typography'])
+                ->before('<span class="sidebar-mini">T</span>');
         });
 
         // Footer

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@include('lbd::inc.demo')
 <html lang="en">
 <head>
     @include('lbd::inc.head')
@@ -17,7 +18,7 @@
         @include('lbd::inc.footer')
     </div>
 </div>
-@include('lbd::inc.demo')
+@stack('demo')
 </body>
 @include('lbd::inc.scripts')
 </html>
