@@ -162,6 +162,10 @@ class LightBootstrapDashboardController extends Controller
 
             $tables->add('<span class="sidebar-normal">DataTables.Net</span>', ['route' => 'lbd.tables.datatables'])
                 ->before('<span class="sidebar-mini">DT</span>');
+
+            ($pages = $menu->add('Pages')
+                ->before('<i class="nc-icon nc-puzzle-10"></i>'))
+                ->link->href('#pageExamples');
         });
 
         // Footer

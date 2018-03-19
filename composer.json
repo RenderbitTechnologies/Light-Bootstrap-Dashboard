@@ -1,5 +1,5 @@
 {
-    "name": "RenderbitTechnologies/LightBootstrapDashboard",
+    "name": "renderbit/light-bootstrap-dashboard",
     "type": "library",
     "description": "Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5",
     "keywords": [
