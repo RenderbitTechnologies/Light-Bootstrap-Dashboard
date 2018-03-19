@@ -15,4 +15,16 @@ Route::group([
     Route::get('notifications', 'LightBootstrapDashboardController@getNotifications')->name('lbd.components.notifications');
     Route::get('icons', 'LightBootstrapDashboardController@getIcons')->name('lbd.components.icons');
     Route::get('typography', 'LightBootstrapDashboardController@getTypography')->name('lbd.components.typography');
+
+    // Forms
+    Route::get('regular-form', 'LightBootstrapDashboardController@getRegularForm')->name('lbd.forms.regular-form');
+    Route::get('extended-form', 'LightBootstrapDashboardController@getExtendedForm')->name('lbd.forms.extended-form');
+    Route::get('validation-form', 'LightBootstrapDashboardController@getValidationForm')->name('lbd.forms.validation-form');
+    Route::get('wizard', 'LightBootstrapDashboardController@getWizard')->name('lbd.forms.wizard');
+
+    // Tables
+    Route::get('regular-table', 'LightBootstrapDashboardController@getRegularTable')->name('lbd.tables.regular-table');
+    Route::get('extended-table', 'LightBootstrapDashboardController@getExtendedTable')->name('lbd.tables.extended-table');
+    Route::get('bootstrap-table', 'LightBootstrapDashboardController@getBootstrapTable')->name('lbd.tables.bootstrap-table');
+    Route::get('datatables', 'LightBootstrapDashboardController@getDatatables')->name('lbd.tables.datatables');
 });

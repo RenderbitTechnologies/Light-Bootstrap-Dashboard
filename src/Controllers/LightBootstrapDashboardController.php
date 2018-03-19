@@ -45,6 +45,38 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::typography');
     }
 
+    public function getRegularForm() {
+        return view('lbd::regular-form');
+    }
+
+    public function getExtendedForm() {
+        return view('lbd::extended-form');
+    }
+
+    public function getValidationForm() {
+        return view('lbd::validation-form');
+    }
+
+    public function getWizard() {
+        return view('lbd::wizard');
+    }
+
+    public function getRegularTable() {
+        return view('lbd::regular-table');
+    }
+
+    public function getExtendedTable() {
+        return view('lbd::extended-table');
+    }
+
+    public function getBootstrapTable() {
+        return view('lbd::bootstrap-table');
+    }
+
+    public function getDatatables() {
+        return view('lbd::datatables');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -98,6 +130,38 @@ class LightBootstrapDashboardController extends Controller
 
             $components->add('<span class="sidebar-normal">Typography</span>', ['route' => 'lbd.components.typography'])
                 ->before('<span class="sidebar-mini">T</span>');
+
+            ($forms = $menu->add('Forms')
+                ->before('<i class="nc-icon nc-notes"></i>'))
+                ->link->href('#formExamples');
+
+            $forms->add('<span class="sidebar-normal">Regular Form</span>', ['route' => 'lbd.forms.regular-form'])
+                ->before('<span class="sidebar-mini">RF</span>');
+
+            $forms->add('<span class="sidebar-normal">Extended Form</span>', ['route' => 'lbd.forms.extended-form'])
+                ->before('<span class="sidebar-mini">EF</span>');
+
+            $forms->add('<span class="sidebar-normal">Validation Form</span>', ['route' => 'lbd.forms.validation-form'])
+                ->before('<span class="sidebar-mini">VF</span>');
+
+            $forms->add('<span class="sidebar-normal">Wizard</span>', ['route' => 'lbd.forms.wizard'])
+                ->before('<span class="sidebar-mini">W</span>');
+
+            ($tables = $menu->add('Tables')
+                ->before('<i class="nc-icon nc-paper-2"></i>'))
+                ->link->href('#tableExamples');
+
+            $tables->add('<span class="sidebar-normal">Regular Table</span>', ['route' => 'lbd.tables.regular-table'])
+                ->before('<span class="sidebar-mini">RT</span>');
+
+            $tables->add('<span class="sidebar-normal">Extended Table</span>', ['route' => 'lbd.tables.extended-table'])
+                ->before('<span class="sidebar-mini">ET</span>');
+
+            $tables->add('<span class="sidebar-normal">Bootstrap Table</span>', ['route' => 'lbd.tables.bootstrap-table'])
+                ->before('<span class="sidebar-mini">BT</span>');
+
+            $tables->add('<span class="sidebar-normal">DataTables.Net</span>', ['route' => 'lbd.tables.datatables'])
+                ->before('<span class="sidebar-mini">DT</span>');
         });
 
         // Footer
