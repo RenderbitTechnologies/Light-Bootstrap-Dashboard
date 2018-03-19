@@ -1,9 +1,11 @@
 <div class="card {{ $class_list or '' }}">
+    @isset($title)
     <div class="card-header">
         <h4 class="card-title">{{ $title }}</h4>
-        <p class="card-category">{{ $subtitle }}</p>
+        @isset($subtitle)<p class="card-category">{{ $subtitle }}</p>@endisset
     </div>
-    <div class="card-body">
+    @endisset
+    <div class="card-body {{ $body_class_list or '' }}">
         {{ $body }}
     </div>
     @isset($footer)
