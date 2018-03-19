@@ -8,11 +8,21 @@ use Menu;
 class LightBootstrapDashboardController extends Controller
 {
     public function __construct() {
-        $this->setupMenus();
+        if(config('lbd.load_demo_content')) {
+            $this->setupMenus();
+        }
     }
 
     public function getDashboard() {
         return view('lbd::dashboard');
+    }
+
+    public function getButtons() {
+        return view('lbd::buttons');
+    }
+
+    public function getGrid() {
+        return view('lbd::grid');
     }
 
     protected function setupMenus() {
@@ -41,15 +51,18 @@ class LightBootstrapDashboardController extends Controller
         });
 
         Menu::make('sidebar_main_menu', function ($menu) {
-            $menu->add('Dashboard', '#')
+            $menu->add('Dashboard', ['route' => 'lbd.dashboard'])
                 ->before('<i class="nc-icon nc-chart-pie-35"></i>');
 
-            $menu->add('Components')
-                ->before('<i class="nc-icon nc-app"></i>')
+            ($components = $menu->add('Components')
+                ->before('<i class="nc-icon nc-app"></i>'))
                 ->link->href('#componentExamples');
 
-            $menu->get('components')->add('<span class="sidebar-normal">Buttons</span>', ['route' => 'lbd.dashboard'])
+            $components->add('<span class="sidebar-normal">Buttons</span>', ['route' => 'lbd.components.buttons'])
                 ->before('<span class="sidebar-mini">B</span>');
+
+            $components->add('<span class="sidebar-normal">Grid System</span>', ['route' => 'lbd.components.grid'])
+                       ->before('<span class="sidebar-mini">GS</span>');
         });
 
         // Footer
