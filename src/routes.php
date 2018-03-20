@@ -37,4 +37,7 @@ Route::group([
 
     // Charts
     Route::get('charts', 'LightBootstrapDashboardController@getCharts')->name('lbd.charts');
+
+    // Charts
+    Route::get('calendar', 'LightBootstrapDashboardController@getCalendar')->name('lbd.calendar');
 });

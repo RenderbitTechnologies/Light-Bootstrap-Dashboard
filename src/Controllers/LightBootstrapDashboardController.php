@@ -101,6 +101,10 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::charts');
     }
 
+    public function getCalendar() {
+        return view('lbd::calendar');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -189,6 +193,9 @@ class LightBootstrapDashboardController extends Controller
 
             $menu->add('Charts', ['route' => 'lbd.charts'])
                 ->before('<i class="nc-icon nc-chart-bar-32"></i>');
+
+            $menu->add('Calendar', ['route' => 'lbd.calendar'])
+                ->before('<i class="nc-icon nc-single-copy-04"></i>');
 
             ($pages = $menu->add('Pages')
                 ->before('<i class="nc-icon nc-puzzle-10"></i>'))
