@@ -34,4 +34,7 @@ Route::group([
     Route::get('lock-screen', 'LightBootstrapDashboardController@getLockScreen')->name('lbd.pages.lock-screen');
     Route::get('user', 'LightBootstrapDashboardController@getUser')->name('lbd.pages.user');
     Route::get('blank', 'LightBootstrapDashboardController@getBlank')->name('lbd.pages.blank');
+
+    // Charts
+    Route::get('charts', 'LightBootstrapDashboardController@getCharts')->name('lbd.charts');
 });

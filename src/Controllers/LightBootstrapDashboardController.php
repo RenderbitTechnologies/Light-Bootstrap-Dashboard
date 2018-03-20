@@ -97,6 +97,10 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::blank');
     }
 
+    public function getCharts() {
+        return view('lbd::charts');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -182,6 +186,9 @@ class LightBootstrapDashboardController extends Controller
 
             $tables->add('<span class="sidebar-normal">DataTables.Net</span>', ['route' => 'lbd.tables.datatables'])
                 ->before('<span class="sidebar-mini">DT</span>');
+
+            $menu->add('Charts', ['route' => 'lbd.charts'])
+                ->before('<i class="nc-icon nc-chart-bar-32"></i>');
 
             ($pages = $menu->add('Pages')
                 ->before('<i class="nc-icon nc-puzzle-10"></i>'))
