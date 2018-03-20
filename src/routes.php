@@ -38,6 +38,11 @@ Route::group([
     // Charts
     Route::get('charts', 'LightBootstrapDashboardController@getCharts')->name('lbd.charts');
 
-    // Charts
+    // Calendar
     Route::get('calendar', 'LightBootstrapDashboardController@getCalendar')->name('lbd.calendar');
+
+    // Maps
+    Route::get('google-map', 'LightBootstrapDashboardController@getGoogleMap')->name('lbd.maps.google-map');
+    Route::get('vector-map', 'LightBootstrapDashboardController@getVectorMap')->name('lbd.maps.vector-map');
+    Route::get('fullscreen-map', 'LightBootstrapDashboardController@getFullscreenMap')->name('lbd.maps.fullscreen-map');
 });

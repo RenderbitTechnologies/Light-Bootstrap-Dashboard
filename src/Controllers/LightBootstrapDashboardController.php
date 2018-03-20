@@ -105,6 +105,18 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::calendar');
     }
 
+    public function getGoogleMap() {
+        return view('lbd::google-map');
+    }
+
+    public function getVectorMap() {
+        return view('lbd::vector-map');
+    }
+
+    public function getFullscreenMap() {
+        return view('lbd::fullscreen-map');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -190,6 +202,19 @@ class LightBootstrapDashboardController extends Controller
 
             $tables->add('<span class="sidebar-normal">DataTables.Net</span>', ['route' => 'lbd.tables.datatables'])
                 ->before('<span class="sidebar-mini">DT</span>');
+
+            ($maps = $menu->add('Maps')
+                ->before('<i class="nc-icon nc-pin-3"></i>'))
+                ->link->href('#mapExamples');
+
+            $maps->add('<span class="sidebar-normal">Google Map</span>', ['route' => 'lbd.maps.google-map'])
+                ->before('<span class="sidebar-mini">GM</span>');
+
+            $maps->add('<span class="sidebar-normal">Vector Map</span>', ['route' => 'lbd.maps.vector-map'])
+                ->before('<span class="sidebar-mini">VM</span>');
+
+            $maps->add('<span class="sidebar-normal">Fullscreen Map</span>', ['route' => 'lbd.maps.fullscreen-map'])
+                ->before('<span class="sidebar-mini">FM</span>');
 
             $menu->add('Charts', ['route' => 'lbd.charts'])
                 ->before('<i class="nc-icon nc-chart-bar-32"></i>');
