@@ -27,4 +27,11 @@ Route::group([
     Route::get('extended-table', 'LightBootstrapDashboardController@getExtendedTable')->name('lbd.tables.extended-table');
     Route::get('bootstrap-table', 'LightBootstrapDashboardController@getBootstrapTable')->name('lbd.tables.bootstrap-table');
     Route::get('datatables', 'LightBootstrapDashboardController@getDatatables')->name('lbd.tables.datatables');
+
+    // Pages
+    Route::get('login', 'LightBootstrapDashboardController@getLogin')->name('lbd.pages.login');
+    Route::get('register', 'LightBootstrapDashboardController@getRegister')->name('lbd.pages.register');
+    Route::get('lock-screen', 'LightBootstrapDashboardController@getLockScreen')->name('lbd.pages.lock-screen');
+    Route::get('user', 'LightBootstrapDashboardController@getUser')->name('lbd.pages.user');
+    Route::get('blank', 'LightBootstrapDashboardController@getBlank')->name('lbd.pages.blank');
 });

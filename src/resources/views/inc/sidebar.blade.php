@@ -6,16 +6,16 @@
     -->
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="{{ url('/') }}" class="simple-text logo-mini">
+            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-mini">
                 {{ config('lbd.logo_mini') }}
             </a>
-            <a href="{{ url('/') }}" class="simple-text logo-normal">
+            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-normal">
                 {{ config('lbd.logo_full') }}
             </a>
         </div>
         <div class="user">
             <div class="photo">
-                <img src="{{ asset('vendor/lbd/img/default-avatar.png') }}" />
+                <img src="{{ asset('vendor/lbd/img/default-avatar.png') }}" alt="...">
             </div>
             <div class="info ">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">

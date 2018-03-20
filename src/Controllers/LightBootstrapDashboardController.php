@@ -77,6 +77,26 @@ class LightBootstrapDashboardController extends Controller
         return view('lbd::datatables');
     }
 
+    public function getLogin() {
+        return view('lbd::login');
+    }
+
+    public function getRegister() {
+        return view('lbd::register');
+    }
+
+    public function getLockScreen() {
+        return view('lbd::lock-screen');
+    }
+
+    public function getUser() {
+        return view('lbd::user');
+    }
+
+    public function getBlank() {
+        return view('lbd::blank');
+    }
+
     protected function setupMenus() {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
@@ -166,6 +186,21 @@ class LightBootstrapDashboardController extends Controller
             ($pages = $menu->add('Pages')
                 ->before('<i class="nc-icon nc-puzzle-10"></i>'))
                 ->link->href('#pageExamples');
+
+            $pages->add('<span class="sidebar-normal">Login Page</span>', ['route' => 'lbd.pages.login'])
+                ->before('<span class="sidebar-mini">LP</span>');
+
+            $pages->add('<span class="sidebar-normal">Register Page</span>', ['route' => 'lbd.pages.register'])
+                ->before('<span class="sidebar-mini">RP</span>');
+
+            $pages->add('<span class="sidebar-normal">Lock Screen</span>', ['route' => 'lbd.pages.lock-screen'])
+                ->before('<span class="sidebar-mini">LS</span>');
+
+            $pages->add('<span class="sidebar-normal">User Page</span>', ['route' => 'lbd.pages.user'])
+                ->before('<span class="sidebar-mini">UP</span>');
+
+            $pages->add('<span class="sidebar-normal">Blank Page</span>', ['route' => 'lbd.pages.blank'])
+                ->before('<span class="sidebar-mini">BP</span>');
         });
 
         // Footer
@@ -174,6 +209,25 @@ class LightBootstrapDashboardController extends Controller
             $menu->add('Company')->link->href('javascript:void(0)');
             $menu->add('Portfolio')->link->href('javascript:void(0)');
             $menu->add('Blog')->link->href('javascript:void(0)');
+        });
+
+        // Header
+        Menu::make('site_header_menu', function ($menu) {
+            $menu->add('Dashboard', ['route' => 'lbd.dashboard', 'class' => 'nav-item'])
+                ->prepend('<i class="nc-icon nc-chart-pie-35"></i>')
+                ->link->attr(['class' => 'nav-link']);
+
+            $menu->add('Register', ['route' => 'lbd.pages.register', 'class' => 'nav-item'])
+                ->prepend('<i class="nc-icon nc-badge"></i>')
+                ->link->attr(['class' => 'nav-link']);
+
+            $menu->add('Login', ['route' => 'lbd.pages.login', 'class' => 'nav-item'])
+                ->prepend('<i class="nc-icon nc-mobile"></i>')
+                ->link->attr(['class' => 'nav-link']);
+
+            $menu->add('Lock', ['route' => 'lbd.pages.lock-screen', 'class' => 'nav-item'])
+                ->prepend('<i class="nc-icon nc-key-25"></i>')
+                ->link->attr(['class' => 'nav-link']);
         });
     }
 }
