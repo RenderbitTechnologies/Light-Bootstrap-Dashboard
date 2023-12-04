@@ -9,18 +9,15 @@
 
 Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5.
 
-## Structure
+## Version Matrix
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
-
+|Laravel Version|Library Version|
+|-|-|
+|5.x-6.x|1.x|
+|7.x|2.x|
+|8.x|3.x|
+|9.x|4.x|
+|10.x|5.x|
 
 ## Install
 
