@@ -7,13 +7,14 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## NEXT - YYYY-MM-DD
 
 ### Added
-- Nothing
+- `lbd.home_url` config option (`LBD_HOME_URL`) for the logo and navbar brand links
 
 ### Deprecated
 - Nothing
 
 ### Fixed
-- Nothing
+- Layouts no longer throw `Route [lbd.dashboard] not defined` when demo content is disabled
+- Demo routes now use the `web` middleware group
 
 ### Removed
 - Nothing

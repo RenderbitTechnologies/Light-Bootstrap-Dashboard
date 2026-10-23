@@ -29,6 +29,10 @@ return [
 
     'load_demo_content' => env('LOAD_LBD_DEMO', false),
 
+    // URL for the logo and navbar brand links. Falls back to the demo
+    // dashboard when demo content is loaded, otherwise to url('/').
+    'home_url' => env('LBD_HOME_URL'),
+
     'logo_mini' => 'RT',
 
     'logo_full' => 'Renderbit Tech',

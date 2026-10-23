@@ -6,10 +6,10 @@
     -->
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-mini">
+            <a href="{{ lbd_home_url() }}" class="simple-text logo-mini">
                 {{ config('lbd.logo_mini') }}
             </a>
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-normal">
+            <a href="{{ lbd_home_url() }}" class="simple-text logo-normal">
                 {{ config('lbd.logo_full') }}
             </a>
         </div>

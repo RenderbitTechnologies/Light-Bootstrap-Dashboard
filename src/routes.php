@@ -3,6 +3,7 @@
 Route::group([
     'namespace'  => 'RenderbitTechnologies\LightBootstrapDashboard\Controllers',
     'prefix' => 'lbd',
+    'middleware' => 'web',
 ], function () {
     // Dashboard
     Route::get('dashboard', 'LightBootstrapDashboardController@getDashboard')->name('lbd.dashboard');
