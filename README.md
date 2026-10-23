@@ -18,6 +18,7 @@ Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5
 |8.x|3.x|
 |9.x|4.x|
 |10.x|5.x|
+|11.x-12.x|6.x|
 
 ## Install
 
