@@ -55,6 +55,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # Carbon 1 (Laravel 5.x) ships an upgrade-notice Composer plugin; it is not needed here.
+          composer config --no-plugins allow-plugins.kylekatarnls/update-helper false
           composer require "orchestra/testbench:${{ matrix.testbench }}" --dev --no-update --no-interaction
           composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
 
