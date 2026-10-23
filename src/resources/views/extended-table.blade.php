@@ -345,3 +345,10 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @unless(config('lbd.load_demo_content'))
+    <!--  Plugin for Switches (already loaded by the demo fixed-plugin when demo content is enabled) -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-switch.js') }}"></script>
+    @endunless
+@endpush

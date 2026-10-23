@@ -525,6 +525,11 @@
 @endsection
 
 @push('scripts')
+    <!--  DataTable Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery.dataTables.min.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
             $('#datatables').DataTable({

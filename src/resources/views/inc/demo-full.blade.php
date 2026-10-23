@@ -6,6 +6,12 @@
 @endpush
 
 @push('scripts')
+<!--  Chartist Plugin  -->
+<script src="{{ asset('vendor/lbd/js/plugins/chartist.min.js') }}"></script>
+<!--  Notifications Plugin  -->
+<script src="{{ asset('vendor/lbd/js/plugins/bootstrap-notify.js') }}"></script>
+<!--  jVector Map  -->
+<script src="{{ asset('vendor/lbd/js/plugins/jquery-jvectormap.js') }}"></script>
 <!-- Light Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('vendor/lbd/js/demo.js') }}"></script>
 <script>
