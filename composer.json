@@ -1,12 +1,12 @@
 {
     "name": "renderbit/light-bootstrap-dashboard",
     "type": "library",
-    "description": "Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5",
+    "description": "Light Bootstrap Dashboard by Creative Tim, packaged as Blade layouts and components for Laravel",
     "keywords": [
         "RenderbitTechnologies",
         "LightBootstrapDashboard"
     ],
-    "homepage": "https://github.com/RenderbitTechnologies/LightBootstrapDashboard",
+    "homepage": "https://github.com/RenderbitTechnologies/Light-Bootstrap-Dashboard",
     "license": "MIT",
     "authors": [
         {
@@ -46,7 +46,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "6.x-dev"
         },
         "laravel": {
             "providers": [
