@@ -6,8 +6,10 @@
 <script src="{{ asset('vendor/lbd/js/core/bootstrap.min.js') }}"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-switch.js') }}"></script>
+@if(config('lbd.google_maps_api_key'))
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key={{ config('lbd.google_maps_api_key') }}"></script>
+@endif
 <!--  Chartist Plugin  -->
 <script src="{{ asset('vendor/lbd/js/plugins/chartist.min.js') }}"></script>
 <!--  Notifications Plugin    -->
@@ -43,21 +45,15 @@
 
 @stack('scripts')
 
+@if(config('lbd.google_analytics_key'))
+<!--  Google Analytics (GA4)  -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config('lbd.google_analytics_key') }}"></script>
 <script>
-    // analytics
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ config('lbd.google_analytics_key') }}']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', @json(config('lbd.google_analytics_key')));
 </script>
+@endif
 
 @show
