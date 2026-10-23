@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guidelines
+    url: https://github.com/RenderbitTechnologies/Light-Bootstrap-Dashboard/blob/master/CONTRIBUTING.md
+    about: Coding standard, branching, and pull request expectations.
+  - name: Report a security vulnerability
+    url: mailto:contact@renderbit.com
+    about: Please email us instead of opening a public issue.

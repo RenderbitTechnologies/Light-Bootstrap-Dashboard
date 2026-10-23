@@ -1,0 +1,107 @@
+name: Bug report
+description: Something in the Blade views, config, or published assets is not working as expected
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please search existing issues first — a fix or workaround may already exist.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+      placeholder: The sidebar collapses on page load when using the `layout` view.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the view, config, or route used, and the smallest snippet that triggers the problem.
+      placeholder: |
+        1. Install `renderbit/light-bootstrap-dashboard`
+        2. Extend `light-bootstrap-dashboard::layout`
+        3. Visit `/dashboard`
+        4. See error
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      placeholder: The sidebar should stay expanded.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What you see instead. Paste errors, stack traces, or console output here.
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: See the version matrix in the README if you are unsure.
+      placeholder: 5.x
+    validations:
+      required: true
+
+  - type: dropdown
+    id: laravel-version
+    attributes:
+      label: Laravel version
+      options:
+        - 10.x
+        - 9.x
+        - 8.x
+        - 7.x
+        - 5.x / 6.x
+        - Other (mention below)
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: 8.1
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser and operating system
+      description: Browsers only matter for visual/layout bugs; skip if this is PHP-side.
+      placeholder: Chrome 130 on macOS 15, Firefox 132 on Windows 11
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Screenshots, a repository link, or anything else that helps reproduce the issue.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I am using the latest release of this package for my Laravel version.
+          required: true
