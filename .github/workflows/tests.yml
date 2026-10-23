@@ -13,6 +13,14 @@ jobs:
     name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
     runs-on: ubuntu-latest
 
+    env:
+      # Every release of the older Laravel versions in this matrix has a
+      # published security advisory, and Composer >= 2.9 refuses to install
+      # them by default. This job only checks that the package works with
+      # those versions, so allow them here.
+      COMPOSER_NO_BLOCKING: 1
+      COMPOSER_NO_SECURITY_BLOCKING: 1
+
     strategy:
       fail-fast: false
       matrix:
@@ -36,7 +44,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -59,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
