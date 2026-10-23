@@ -5,11 +5,12 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="sidebar-wrapper">
+        @php($homeUrl = Route::has('lbd.dashboard') ? route('lbd.dashboard') : url('/'))
         <div class="logo">
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-mini">
+            <a href="{{ $homeUrl }}" class="simple-text logo-mini">
                 {{ config('lbd.logo_mini') }}
             </a>
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-normal">
+            <a href="{{ $homeUrl }}" class="simple-text logo-normal">
                 {{ config('lbd.logo_full') }}
             </a>
         </div>
