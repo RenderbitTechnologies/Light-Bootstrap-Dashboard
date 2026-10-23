@@ -7,7 +7,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## NEXT - YYYY-MM-DD
 
 ### Added
-- Nothing
+- PHPUnit test suite (Orchestra Testbench) and a GitHub Actions workflow running it across the supported PHP and Laravel versions, plus a PSR-2 style check.
 
 ### Deprecated
 - Nothing
