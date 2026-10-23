@@ -13,3 +13,22 @@ if (! function_exists('is_child_active')) {
         return false;
     }
 }
+
+if (! function_exists('lbd_sidebar_button_color')) {
+    function lbd_sidebar_button_color($sidebarColor = null)
+    {
+        $colors = [
+            'black' => 'default',
+            'azure' => 'info',
+            'blue' => 'primary',
+            'purple' => 'primary',
+            'green' => 'success',
+            'orange' => 'warning',
+            'red' => 'danger',
+        ];
+
+        $sidebarColor = $sidebarColor ?: config('lbd.sidebar_color');
+
+        return isset($colors[$sidebarColor]) ? $colors[$sidebarColor] : 'default';
+    }
+}

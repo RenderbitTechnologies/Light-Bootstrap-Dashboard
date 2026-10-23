@@ -35,6 +35,34 @@ $skeleton = new RenderbitTechnologies\LightBootstrapDashboard();
 echo $skeleton->echoPhrase('Hello, League!');
 ```
 
+### Customizing the layout chrome
+
+The sidebar and navbar are empty by default. Fill them from your own views:
+
+``` blade
+@extends('lbd::layout')
+
+@section('sidebar-user')
+<div class="user">
+    <div class="info">
+        <a href="{{ route('profile') }}"><span>{{ auth()->user()->name }}</span></a>
+    </div>
+</div>
+@endsection
+
+@push('navbar-right')
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('logout') }}">Log out</a>
+</li>
+@endpush
+```
+
+- `sidebar-user` (section): the user block below the sidebar logo.
+- `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists.
+- `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
+
+The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

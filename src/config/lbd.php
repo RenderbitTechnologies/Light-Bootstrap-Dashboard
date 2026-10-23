@@ -36,6 +36,10 @@ return [
     // data-color="purple | blue | green | orange | red"
     'sidebar_color' => 'orange',
 
+    // Path (relative to public/) of the sidebar background image, e.g. 'vendor/lbd/img/sidebar-5.jpg'.
+    // Leave null for no background image.
+    'sidebar_image' => null,
+
     'footer_logo' => 'Renderbit Tech',
 
     'footer_link' => 'https://renderbit.com',
