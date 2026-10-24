@@ -17,8 +17,9 @@ class ServiceProviderTest extends TestCase
 
     public function testPackageConfigIsMerged()
     {
-        $this->assertSame('RT', config('lbd.logo_mini'));
-        $this->assertSame('Renderbit Tech', config('lbd.logo_full'));
+        // The logo defaults are derived from app.name ("Laravel" in Testbench).
+        $this->assertSame('LA', config('lbd.logo_mini'));
+        $this->assertSame(config('app.name'), config('lbd.logo_full'));
         $this->assertSame('orange', config('lbd.sidebar_color'));
         $this->assertFalse(config('lbd.load_demo_content'));
         $this->assertSame(

@@ -61,6 +61,7 @@ The sidebar and navbar are empty by default. Fill them from your own views:
 - `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists.
 - `navbar-full` (stack): `<li>` items rendered in the navbar of the full-page layout (`lbd::layout-full`, used by the login, register and lock screen pages).
 - `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
+- `lbd.home_url` config key (`LBD_HOME_URL`) sets where the sidebar logo and navbar brand link; it defaults to the demo dashboard when demo content is enabled and to `url('/')` otherwise.
 
 The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
 

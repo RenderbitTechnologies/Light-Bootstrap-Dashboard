@@ -81,4 +81,10 @@ class DemoEnabledTest extends TestCase
             ->assertSee(config('lbd.logo_full'))
             ->assertSee(route('lbd.components.buttons'), false);
     }
+
+    public function testHomeLinksPointToTheDemoDashboard()
+    {
+        $this->assertHomeLinksPointTo(route('lbd.dashboard'), 'page-with-layout', 3);
+        $this->assertHomeLinksPointTo(route('lbd.dashboard'), 'page-with-layout-full', 1);
+    }
 }
