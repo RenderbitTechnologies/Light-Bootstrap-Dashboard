@@ -329,11 +329,14 @@ The demo menus in `src/Controllers/LightBootstrapDashboardController.php` (`setu
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Code style
+## Testing
+
+The test suite runs against the package with [Orchestra Testbench](https://github.com/orchestral/testbench).
 
 ``` bash
-composer check-style
-composer fix-style
+composer test         # run the PHPUnit suite
+composer check-style  # check the sources against PSR-2
+composer fix-style    # fix what can be fixed automatically
 ```
 
 ## Contributing

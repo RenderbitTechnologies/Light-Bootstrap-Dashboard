@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 - `sidebar-user` section and `navbar-left` / `navbar-right` / `navbar-full` stacks for filling the layout chrome from your own views
 - `lbd.sidebar_image` config key for the sidebar background image
+- PHPUnit test suite (Orchestra Testbench) and a GitHub Actions workflow running it across the supported PHP and Laravel versions, plus a PSR-2 style check.
 - README: install, asset/config/view publishing, configuration reference, layout sections and stacks, `lbd::inc.box` / `lbd::inc.card` components and lavary/laravel-menu setup.
 - README: note on using `@push('scripts')` / `@push('styles')` instead of overriding `@section('scripts')` / `@section('styles')`.
 
