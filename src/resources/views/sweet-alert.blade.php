@@ -99,3 +99,8 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <!--  Sweet Alert  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/sweetalert2.min.js') }}"></script>
+@endpush

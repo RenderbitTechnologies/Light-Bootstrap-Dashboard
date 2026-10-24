@@ -226,3 +226,8 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <!--  jQuery Validate  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery.validate.min.js') }}"></script>
+@endpush

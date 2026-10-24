@@ -152,6 +152,15 @@
 @endsection
 
 @push('scripts')
+    <!--  jQuery Validate  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery.validate.min.js') }}"></script>
+    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery.bootstrap-wizard.js') }}"></script>
+    <!--  Bootstrap Select  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-selectpicker.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
             // Init Wizard
