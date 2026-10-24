@@ -18,6 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 - Invalid navbar markup (`<a>` and `<form>` elements as direct children of `<ul>`)
 - Sidebar minimize button now follows `lbd.sidebar_color` instead of always being orange
+- Navbar brand in `lbd::layout` and `lbd::layout-full` no longer throws `RouteNotFoundException` when demo content is disabled; it links to `url('/')` when no `lbd.dashboard` route exists
 
 ### Removed
 - Hardcoded demo content from `inc/sidebar.blade.php` and `inc/navbar.blade.php` (moved to `inc/demo.blade.php`)

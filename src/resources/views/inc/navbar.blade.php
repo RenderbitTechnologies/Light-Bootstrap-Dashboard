@@ -8,7 +8,8 @@
                     <i class="fa fa-navicon visible-on-sidebar-mini"></i>
                 </button>
             </div>
-            <a class="navbar-brand" href="{{ route('lbd.dashboard') }}">@yield('title')</a>
+            @php($homeUrl = Route::has('lbd.dashboard') ? route('lbd.dashboard') : url('/'))
+            <a class="navbar-brand" href="{{ $homeUrl }}">@yield('title')</a>
         </div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar burger-lines"></span>
