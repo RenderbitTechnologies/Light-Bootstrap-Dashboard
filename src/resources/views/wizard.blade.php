@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
-                <form id="wizardForm" method="" action="#">
+                <form id="wizardForm" action="#">
                     <div class="card card-wizard">
                         <div class="card-header ">
                             <h3 class="card-title text-center">Awesome Wizard</h3>

@@ -7,37 +7,8 @@
 <!-- Title -->
 <title>@yield('title') | {{ config('app.name') }}</title>
 
-<!-- Canonical SEO -->
-<link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro">
-
-<!--  Social tags -->
-<meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, light bootstrap 4 dashboard, frontend, responsive bootstrap dashboard">
-<meta name="description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
-
-<!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="Light Bootstrap Dashboard PRO by Creative Tim">
-<meta itemprop="description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
-<meta itemprop="image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-
-<!-- Twitter Card data -->
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@creativetim">
-<meta name="twitter:title" content="Light Bootstrap Dashboard PRO by Creative Tim">
-<meta name="twitter:description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
-<meta name="twitter:creator" content="@creativetim">
-<meta name="twitter:image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-<meta name="twitter:data1" content="Light Bootstrap Dashboard PRO by Creative Tim">
-<meta name="twitter:label1" content="Product Type">
-<meta name="twitter:data2" content="$39">
-<meta name="twitter:label2" content="Price">
-
-<!-- Open Graph data -->
-<meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim">
-<meta property="og:type" content="article">
-<meta property="og:url" content="dashboard.html">
-<meta property="og:image" content="../../creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-<meta property="og:description" content="Forget about boring dashboards, get a bootstrap 4 admin template designed to be simple and beautiful.">
-<meta property="og:site_name" content="Creative Tim">
+<!-- Page meta -->
+@stack('meta')
 
 @section('styles')
 <!-- Fonts and icons -->
