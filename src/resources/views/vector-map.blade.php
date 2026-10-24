@@ -27,6 +27,11 @@
 @endsection
 
 @push('scripts')
+    <!--  jVector Map  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery-jvectormap.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         $(document).ready(function () {
             demo.initVectorMap();

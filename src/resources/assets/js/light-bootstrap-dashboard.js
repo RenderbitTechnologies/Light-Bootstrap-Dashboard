@@ -47,13 +47,8 @@ $(document).ready(function() {
     //  Activate the tooltips
     $('[rel="tooltip"]').tooltip();
 
-    // Init Tags Input
-    // if($(".tagsinput").length != 0){
-    //     $(".tagsinput").tagsInput();
-    // }
-
     //  Activate regular switches
-    if ($("[data-toggle='switch']").length != 0) {
+    if ($.fn.bootstrapSwitch && $("[data-toggle='switch']").length != 0) {
         $("[data-toggle='switch']").bootstrapSwitch();
     }
 
@@ -62,119 +57,6 @@ $(document).ready(function() {
     }).on("blur", function() {
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
-
-    // Share buttons
-    if ($('.twitter-sharrre').length != 0) {
-        $('.twitter-sharrre').sharrre({
-            share: {
-                twitter: true
-            },
-            enableHover: false,
-            enabletracking: false,
-            enableCounter: false,
-            buttons: {
-                twitter: {
-                    via: 'CreativeTim'
-                }
-            },
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('twitter');
-            },
-            template: '<i class="fa fa-twitter"></i>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
-
-    if ($('.twitter-sharrre-nav').length != 0) {
-        $('.twitter-sharrre-nav').sharrre({
-            share: {
-                twitter: true
-            },
-            enableHover: false,
-            enabletracking: false,
-            enableCounter: false,
-            buttons: {
-                twitter: {
-                    via: 'CreativeTim'
-                }
-            },
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('twitter');
-            },
-            template: '<i class="fa fa-twitter"></i><p class="hidden-lg-up">Twitter</p>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
-
-    if ($('.facebook-sharrre').length != 0) {
-        $('.facebook-sharrre').sharrre({
-            share: {
-                facebook: true
-            },
-            enableHover: false,
-            enabletracking: false,
-            enableCounter: false,
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('facebook');
-            },
-            template: '<i class="fa fa-facebook-square"></i>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
-
-    if ($('.facebook-sharrre-nav').length != 0) {
-        $('.facebook-sharrre-nav').sharrre({
-            share: {
-                facebook: true
-            },
-            enableHover: false,
-            enabletracking: false,
-            enableCounter: false,
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('facebook');
-            },
-            template: '<i class="fa fa-facebook-square"></i><p class="hidden-lg-up">Facebook</p>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
-
-    if ($('.linkedin-sharrre').length != 0) {
-        $('.linkedin-sharrre').sharrre({
-            share: {
-                linkedin: true
-            },
-            enableCounter: false,
-            enableHover: false,
-            enabletracking: false,
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('linkedin');
-            },
-            template: '<i class="fa fa-linkedin"></i>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
-
-    if ($('.linkedin-sharrre-nav').length != 0) {
-        $('.linkedin-sharrre-nav').sharrre({
-            share: {
-                linkedin: true
-            },
-            enableCounter: false,
-            enableHover: false,
-            enabletracking: false,
-            click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('linkedin');
-            },
-            template: '<i class="fa fa-linkedin"></i><p class="hidden-lg-up">LinkedIn</p>',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html'
-        });
-    }
 
     // Fixes sub-nav not working as expected on IOS
     $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {

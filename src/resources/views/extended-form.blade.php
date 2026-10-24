@@ -62,11 +62,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h4 class="title">Tags</h4>
-                            <!-- You can change "tag-azure" with with "tag-blue", "tag-green", "tag-orange","tag-red" and you can also add "tag-fill" for having filled tags -->
+                            <!-- You can change "badge-azure" with "badge-blue", "badge-green", "badge-orange", "badge-red" and you can also add "badge-fill" for having filled tags -->
                             <div id="badge">
                                 Regular:
-                                <input type="text" value="Minimal, Light, New, Friends" data-role="tagsinput" /> Filled:
-                                <input data-role="tagsinput" class="tagsinput badge-azure badge-fill" value="Design & UI, Inspiration, Business, Lifestyle" />
+                                <input type="text" class="tagsinput badge-azure" value="Minimal, Light, New, Friends" /> Filled:
+                                <input type="text" class="tagsinput badge-azure badge-fill" value="Design & UI, Inspiration, Business, Lifestyle" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -179,3 +179,41 @@
         <!-- end card -->
     </div>
 @endsection
+
+@push('styles')
+    <!--  Tags Input (Tom Select)  -->
+    <link href="{{ asset('vendor/lbd/css/tom-select.bootstrap4.min.css') }}" rel="stylesheet">
+@endpush
+
+@push('scripts')
+    @unless(config('lbd.load_demo_content'))
+    <!--  Plugin for Switches (already loaded by the demo fixed-plugin when demo content is enabled) -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-switch.js') }}"></script>
+    @endunless
+    <!--  Moment.js, required by the Date Time Picker and Full Calendar  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/moment.min.js') }}"></script>
+    <!--  DatetimePicker  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-datetimepicker.js') }}"></script>
+    <!--  Tags Input (Tom Select)  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/tom-select.complete.min.js') }}"></script>
+    <!--  Sliders  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/nouislider.js') }}"></script>
+    <!--  Bootstrap Select  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-selectpicker.js') }}"></script>
+@endpush
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Free-text tags; the input keeps a comma-separated value for form submission
+            $('input.tagsinput').each(function() {
+                new TomSelect(this, {
+                    create: true,
+                    persist: false,
+                    delimiter: ',',
+                    plugins: ['remove_button']
+                });
+            });
+        });
+    </script>
+@endpush

@@ -59,6 +59,7 @@ The sidebar and navbar are empty by default. Fill them from your own views:
 
 - `sidebar-user` (section): the user block below the sidebar logo.
 - `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists.
+- `navbar-full` (stack): `<li>` items rendered in the navbar of the full-page layout (`lbd::layout-full`, used by the login, register and lock screen pages).
 - `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
 
 The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
@@ -69,8 +70,12 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
+The test suite runs against the package with [Orchestra Testbench](https://github.com/orchestral/testbench).
+
 ``` bash
-$ composer test
+$ composer test         # run the PHPUnit suite
+$ composer check-style  # check the sources against PSR-2
+$ composer fix-style    # fix what can be fixed automatically
 ```
 
 ## Contributing

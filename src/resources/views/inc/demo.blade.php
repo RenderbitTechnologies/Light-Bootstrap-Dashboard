@@ -84,6 +84,12 @@
 </li>
 @endpush
 
+@push('navbar-full')
+@if(Menu::exists('site_header_menu'))
+{!! Menu::get('site_header_menu')->render('ul') !!}
+@endif
+@endpush
+
 @push('demo')
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
@@ -188,6 +194,8 @@
 @endpush
 
 @push('scripts')
+<!--  Plugin for Switches used by the fixed-plugin above, full documentation here: https://bttstrp.github.io/bootstrap-switch/ -->
+<script src="{{ asset('vendor/lbd/js/plugins/bootstrap-switch.js') }}"></script>
 <!-- Light Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('vendor/lbd/js/demo.js') }}"></script>
 @endpush

@@ -203,6 +203,13 @@
 @endsection
 
 @push('scripts')
+    <!--  Bootstrap Table Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-table.js') }}"></script>
+    <!--  Sweet Alert  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/sweetalert2.min.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         var $table = $('#bootstrap-table');
 
@@ -258,16 +265,19 @@
 
                 formatShowingRows: function(pageFrom, pageTo, totalRows) {
                     //do nothing here, we don't want to show the text "showing x of y from..."
+                    return '';
                 },
                 formatRecordsPerPage: function(pageNumber) {
                     return pageNumber + " rows visible";
                 },
+                iconsPrefix: 'fa',
                 icons: {
-                    refresh: 'fa fa-refresh',
-                    toggle: 'fa fa-th-list',
-                    columns: 'fa fa-columns',
-                    detailOpen: 'fa fa-plus-circle',
-                    detailClose: 'fa fa-minus-circle'
+                    refresh: 'fa-refresh',
+                    toggleOff: 'fa-th-list',
+                    toggleOn: 'fa-th-list',
+                    columns: 'fa-columns',
+                    detailOpen: 'fa-plus-circle',
+                    detailClose: 'fa-minus-circle'
                 }
             });
 

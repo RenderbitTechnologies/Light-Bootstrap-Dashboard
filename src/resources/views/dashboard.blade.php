@@ -383,6 +383,15 @@
 @endsection
 
 @push('scripts')
+    <!--  Chartist Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/chartist.min.js') }}"></script>
+    <!--  Notifications Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-notify.js') }}"></script>
+    <!--  jVector Map  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/jquery-jvectormap.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
