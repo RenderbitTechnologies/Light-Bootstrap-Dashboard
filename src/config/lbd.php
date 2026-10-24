@@ -7,20 +7,22 @@ return [
     | Google Maps API Key
     |--------------------------------------------------------------------------
     |
-    | The API key used to load the Google Maps JavaScript API.
+    | The API key used to load the Google Maps JavaScript API. The script is
+    | not loaded when this is empty.
     |
     */
-    'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY', 'AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU'),
+    'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY'),
 
     /*
     |--------------------------------------------------------------------------
     | Google Analytics Key
     |--------------------------------------------------------------------------
     |
-    | The Google Analytics tracking ID used by the layout's analytics script.
+    | The Google Analytics measurement ID used by the layout's gtag.js script.
+    | The script is not loaded when this is empty.
     |
     */
-    'google_analytics_key' => env('GOOGLE_ANALYTICS_KEY', 'UA-46172202-1'),
+    'google_analytics_key' => env('GOOGLE_ANALYTICS_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,6 +59,18 @@ return [
     |
     */
     'sidebar_color' => 'orange',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sidebar Image
+    |--------------------------------------------------------------------------
+    |
+    | Path (relative to public/) of the sidebar background image, e.g.
+    | "vendor/lbd/img/sidebar-5.jpg". Leave null for no background image (the
+    | demo image is used when demo content is enabled).
+    |
+    */
+    'sidebar_image' => null,
 
     /*
     |--------------------------------------------------------------------------

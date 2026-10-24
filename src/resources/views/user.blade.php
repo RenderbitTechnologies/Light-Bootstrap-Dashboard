@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6">
-                    <form class="form" method="" action="#">
+                    <form class="form" action="#">
                         <div class="card ">
                             <div class="card-header ">
                                 <div class="card-header">
