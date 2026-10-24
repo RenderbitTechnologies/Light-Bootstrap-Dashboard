@@ -55,12 +55,13 @@ Re-run the `--tag=public` command (with `--force`) after upgrading the package t
 
 | Key | `.env` variable | Default | Description |
 |-|-|-|-|
-| `google_maps_api_key` | `GOOGLE_MAPS_API_KEY` | Creative Tim demo key | API key for the Google Maps script loaded in `inc/scripts`. Set your own key. |
-| `google_analytics_key` | `GOOGLE_ANALYTICS_KEY` | `UA-46172202-1` | Google Analytics account ID used by the tracking snippet in `inc/scripts`. Set your own ID. |
-| `load_demo_content` | `LOAD_LBD_DEMO` | `false` | Registers the demo routes (under `/lbd`), the demo menus and the theme's "fixed plugin" settings panel. |
+| `google_maps_api_key` | `GOOGLE_MAPS_API_KEY` | `null` | API key for the Google Maps JavaScript API. The Maps script is only loaded when this is set. |
+| `google_analytics_key` | `GOOGLE_ANALYTICS_KEY` | `null` | Google Analytics (GA4) measurement ID, e.g. `G-XXXXXXXXXX`. The `gtag.js` snippet is only output when this is set. |
+| `load_demo_content` | `LOAD_LBD_DEMO` | `false` | Registers the demo routes (under `/lbd`) and the demo menus, and fills the layout chrome with the template's placeholder content (sidebar user, navbar search and dropdowns, the "fixed plugin" settings panel, the `sidebar-5.jpg` background). |
 | `logo_mini` | — | `RT` | Text shown as the sidebar logo when the sidebar is minimized. |
 | `logo_full` | — | `Renderbit Tech` | Text shown as the sidebar logo. |
-| `sidebar_color` | — | `orange` | Sidebar `data-color`: `purple`, `blue`, `green`, `orange` or `red`. |
+| `sidebar_color` | — | `orange` | Sidebar `data-color`: `purple`, `blue`, `green`, `orange` or `red`. The sidebar minimize button follows this colour. |
+| `sidebar_image` | — | `null` | Sidebar background image, as a path relative to `public/` (e.g. `vendor/lbd/img/sidebar-5.jpg`). `null` means no image (the demo uses `sidebar-5.jpg`). |
 | `footer_logo` | — | `Renderbit Tech` | Reserved for the footer logo text; not used by the bundled views yet. |
 | `footer_link` | — | `https://renderbit.com` | Reserved for the footer logo link; not used by the bundled views yet. |
 
@@ -68,13 +69,13 @@ The footer copyright line uses your app's `app.name` and `app.url`, and the page
 
 ### `config/sidebar-menu.php`
 
-This file is merged into `laravel-menu.settings`, so its keys are lavary/laravel-menu settings per menu name. By default it only sets `activate_parents` to `false` for `sidebar_main_menu`. See the [lavary/laravel-menu configuration docs](https://github.com/lavary/laravel-menu#configuration) for the available settings.
+Its keys are lavary/laravel-menu settings per menu name, and they are layered over `laravel-menu.settings` when the package boots, so a published copy takes effect. By default it only sets `activate_parents` to `false` for `sidebar_main_menu`. See the [lavary/laravel-menu configuration docs](https://github.com/lavary/laravel-menu#configuration) for the available settings.
 
 ### Demo pages
 
 To browse every page of the theme, set `LOAD_LBD_DEMO=true` in `.env` and visit `/lbd/dashboard`. The demo routes are named `lbd.*` (for example `lbd.dashboard`, `lbd.components.buttons`, `lbd.pages.login`); run `php artisan route:list --name=lbd` to see them all. The demo views (`lbd::dashboard`, `lbd::charts`, `lbd::login`, ...) are good references for the markup each component needs.
 
-> **Note:** the sidebar logo and the navbar brand link to `route('lbd.dashboard')`, which only exists when the demo routes are loaded. If you use the layouts with the demo turned off, publish the views (`--tag=views`) and point those links at your own route, or define a route named `lbd.dashboard`.
+> **Note:** the sidebar logo links to `route('lbd.dashboard')` when that route exists and to `url('/')` otherwise. The navbar brand in `lbd::layout` and `lbd::layout-full` still links to `route('lbd.dashboard')` unconditionally, so with the demo turned off either define a route named `lbd.dashboard` or publish the views (`--tag=views`) and change that link.
 
 ## Usage
 
@@ -119,6 +120,7 @@ Sections and stacks available in both layouts:
 |-|-|-|
 | `title` | section | Page title, used in `<title>` and (in `lbd::layout`) in the navbar. |
 | `content` | section | The page body. |
+| `meta` | stack | Extra `<meta>` / `<link>` tags in `<head>`, before the theme CSS. |
 | `styles` | stack | Extra `<head>` tags, output after the theme CSS. |
 | `scripts` | stack | Extra scripts, output after jQuery, Bootstrap, the theme plugins and `light-bootstrap-dashboard.js`. |
 
@@ -153,6 +155,34 @@ If you do need to override the section, call `@parent` to keep the theme's asset
     <script src="{{ asset('js/extra.js') }}"></script>
 @endsection
 ```
+
+### Layout chrome
+
+The sidebar user block and the navbar menus are empty by default. Fill them from your own views:
+
+``` blade
+@extends('lbd::layout')
+
+@section('sidebar-user')
+<div class="user">
+    <div class="info">
+        <a href="{{ route('profile') }}"><span>{{ auth()->user()->name }}</span></a>
+    </div>
+</div>
+@endsection
+
+@push('navbar-right')
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('logout') }}">Log out</a>
+</li>
+@endpush
+```
+
+- `sidebar-user` (section): the user block below the sidebar logo (`lbd::layout`).
+- `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists (`lbd::layout`).
+- `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
+
+The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
 
 ### Components
 
@@ -214,7 +244,7 @@ The layouts render menus built with [lavary/laravel-menu](https://github.com/lav
 | Menu name | Where it is rendered |
 |-|-|
 | `sidebar_main_menu` | Main sidebar navigation (`lbd::layout`). Supports one level of nested items, shown as collapsible groups. |
-| `sidebar_user_menu` | Dropdown under the user block in the sidebar (`lbd::layout`). |
+| `sidebar_user_menu` | Dropdown under the demo's sidebar user block. Only rendered when `lbd.load_demo_content` is on; otherwise render it yourself in the `sidebar-user` section (see below). |
 | `site_header_menu` | Navbar links (`lbd::layout-full`). |
 | `site_footer_menu` | Footer links (both layouts). |
 
@@ -256,6 +286,23 @@ class BuildDashboardMenus
         return $next($request);
     }
 }
+```
+
+Outside demo mode the layout doesn't render `sidebar_user_menu` for you. Output it from your `sidebar-user` section:
+
+``` blade
+@section('sidebar-user')
+<div class="user">
+    <div class="info">
+        <a data-toggle="collapse" href="#userMenu" class="collapsed">
+            <span>{{ auth()->user()->name }} <b class="caret"></b></span>
+        </a>
+        <div class="collapse" id="userMenu">
+            {!! Menu::get('sidebar_user_menu')->asUl(['class' => 'nav']) !!}
+        </div>
+    </div>
+</div>
+@endsection
 ```
 
 The demo menus in `src/Controllers/LightBootstrapDashboardController.php` (`setupMenus()`) show more complete examples.

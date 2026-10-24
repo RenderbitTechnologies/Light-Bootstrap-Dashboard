@@ -19,6 +19,14 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
             __DIR__.'/config/sidebar-menu.php' => config_path('sidebar-menu.php'),
         ], 'config');
 
+        // Sidebar menu settings, layered over lavary/laravel-menu's own
+        config([
+            'laravel-menu.settings' => array_replace_recursive(
+                config('laravel-menu.settings', []),
+                config('sidebar-menu', [])
+            ),
+        ]);
+
         // Views
         $this->loadViewsFrom(__DIR__.'/resources/views', 'lbd');
 
@@ -49,7 +57,7 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
             __DIR__.'/config/lbd.php', 'lbd'
         );
         $this->mergeConfigFrom(
-            __DIR__.'/config/sidebar-menu.php', 'laravel-menu.settings'
+            __DIR__.'/config/sidebar-menu.php', 'sidebar-menu'
         );
     }
 }
