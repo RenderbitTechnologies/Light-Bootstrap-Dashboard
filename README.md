@@ -4,6 +4,11 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
+[![PHP Version][ico-php]][link-packagist]
+[![Laravel Version][ico-laravel]][link-packagist]
+[![Bootstrap Version][ico-bootstrap]][link-bootstrap]
+[![Laravel Menu][ico-laravel-menu]][link-laravel-menu]
+
 [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) by Creative Tim, packaged as Blade layouts, partials and components for Laravel 5.7 to 12.
 
 ## Version Matrix
@@ -361,8 +366,14 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/renderbit/light-bootstrap-dashboard.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/renderbit/light-bootstrap-dashboard.svg?style=flat-square
+[ico-php]: https://img.shields.io/badge/php-7.4%20%7C%208.0--8.4-777bb4.svg?style=flat-square&logo=php&logoColor=white
+[ico-laravel]: https://img.shields.io/badge/laravel-5.7%20%7C%2012-ff2d20.svg?style=flat-square&logo=laravel&logoColor=white
+[ico-bootstrap]: https://img.shields.io/badge/bootstrap-4.6.2-7952b3.svg?style=flat-square&logo=bootstrap&logoColor=white
+[ico-laravel-menu]: https://img.shields.io/badge/laravel--menu-1.8-4b5563.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/renderbit/light-bootstrap-dashboard
 [link-downloads]: https://packagist.org/packages/renderbit/light-bootstrap-dashboard
+[link-bootstrap]: https://getbootstrap.com/docs/4.6/
+[link-laravel-menu]: https://github.com/lavary/laravel-menu
 [link-author]: https://github.com/RenderbitTechnologies
 [link-contributors]: https://github.com/RenderbitTechnologies/Light-Bootstrap-Dashboard/graphs/contributors
