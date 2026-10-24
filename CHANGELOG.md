@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 **Breaking:** bootstrap-tagsinput has been replaced by [Tom Select](https://tom-select.js.org/) 2.6.2. Inputs with `data-role="tagsinput"` are no longer initialised automatically and `$(...).tagsinput()` no longer exists; push `vendor/lbd/css/tom-select.bootstrap4.min.css` and `vendor/lbd/js/plugins/tom-select.complete.min.js` and call `new TomSelect(el, { create: true, persist: false, delimiter: ',' })` instead (see `extended-form.blade.php`). Give the input the `tagsinput` class (plus `badge-azure`, `badge-fill`, etc.) to keep the dashboard tag styling. Submitted values are still comma-separated.
 
 ### Added
+- `lbd.home_url` config option (`LBD_HOME_URL`) for the logo and navbar brand links
 - `sidebar-user` section and `navbar-left` / `navbar-right` / `navbar-full` stacks for filling the layout chrome from your own views
 - `lbd.sidebar_image` config key for the sidebar background image
 - PHPUnit test suite (Orchestra Testbench) and a GitHub Actions workflow running it across the supported PHP and Laravel versions, plus a PSR-2 style check.
@@ -21,6 +22,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 ### Fixed
+- Layouts no longer throw `Route [lbd.dashboard] not defined` when demo content is disabled
+- Demo routes now use the `web` middleware group
 - Invalid navbar markup (`<a>` and `<form>` elements as direct children of `<ul>`)
 - Sidebar minimize button now follows `lbd.sidebar_color` instead of always being orange
 - README usage section no longer shows skeleton code for a class that does not exist.

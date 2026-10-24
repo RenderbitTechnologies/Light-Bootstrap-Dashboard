@@ -57,7 +57,8 @@ Re-run the `--tag=public` command (with `--force`) after upgrading the package t
 |-|-|-|-|
 | `google_maps_api_key` | `GOOGLE_MAPS_API_KEY` | `null` | API key for the Google Maps JavaScript API. The Maps script is only loaded when this is set. |
 | `google_analytics_key` | `GOOGLE_ANALYTICS_KEY` | `null` | Google Analytics (GA4) measurement ID, e.g. `G-XXXXXXXXXX`. The `gtag.js` snippet is only output when this is set. |
-| `load_demo_content` | `LOAD_LBD_DEMO` | `false` | Registers the demo routes (under `/lbd`) and the demo menus, and fills the layout chrome with the template's placeholder content (sidebar user, navbar search and dropdowns, the full-page navbar menu, the "fixed plugin" settings panel, the `sidebar-5.jpg` background). |
+| `load_demo_content` | `LOAD_LBD_DEMO` | `false` | Registers the demo routes (under `/lbd`, with the `web` middleware group) and the demo menus, and fills the layout chrome with the template's placeholder content (sidebar user, navbar search and dropdowns, the full-page navbar menu, the "fixed plugin" settings panel, the `sidebar-5.jpg` background). |
+| `home_url` | `LBD_HOME_URL` | `null` | Where the sidebar logo and the navbar brand link. When empty, they link to the demo dashboard if demo content is on, otherwise to `url('/')`. |
 | `logo_mini` | — | First two letters of `app.name`, uppercased | Text shown as the sidebar logo when the sidebar is minimized. |
 | `logo_full` | — | `app.name` | Text shown as the sidebar logo. |
 | `sidebar_color` | — | `orange` | Sidebar `data-color`: `black`, `azure`, `blue`, `purple`, `green`, `orange` or `red`. The sidebar minimize button follows this colour. |
@@ -74,8 +75,6 @@ Its keys are lavary/laravel-menu settings per menu name, and they are layered ov
 ### Demo pages
 
 To browse every page of the theme, set `LOAD_LBD_DEMO=true` in `.env` and visit `/lbd/dashboard`. The demo routes are named `lbd.*` (for example `lbd.dashboard`, `lbd.components.buttons`, `lbd.pages.login`); run `php artisan route:list --name=lbd` to see them all. The demo views (`lbd::dashboard`, `lbd::charts`, `lbd::login`, ...) are good references for the markup each component needs.
-
-> **Note:** the sidebar logo links to `route('lbd.dashboard')` when that route exists and to `url('/')` otherwise. The navbar brand in `lbd::layout` and `lbd::layout-full` still links to `route('lbd.dashboard')` unconditionally, so with the demo turned off either define a route named `lbd.dashboard` or publish the views (`--tag=views`) and change that link.
 
 ## Usage
 
@@ -199,6 +198,7 @@ The sidebar user block and the navbar menus are empty by default. Fill them from
 - `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists (`lbd::layout`).
 - `navbar-full` (stack): `<li>` items rendered in the navbar of `lbd::layout-full` (used by the login, register and lock screen pages).
 - `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
+- `lbd.home_url` config key (`LBD_HOME_URL`) sets where the sidebar logo and navbar brand link; it defaults to the demo dashboard when demo content is enabled and to `url('/')` otherwise.
 
 The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
 

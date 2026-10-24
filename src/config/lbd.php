@@ -37,6 +37,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Home URL
+    |--------------------------------------------------------------------------
+    |
+    | Where the sidebar logo and navbar brand links point. When empty, they
+    | link to the demo dashboard if demo content is enabled, otherwise to
+    | your application's root URL.
+    |
+    */
+    'home_url' => env('LBD_HOME_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Sidebar Logo
     |--------------------------------------------------------------------------
     |
