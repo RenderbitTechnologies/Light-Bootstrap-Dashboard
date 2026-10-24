@@ -8,11 +8,12 @@
         Tip 2: you can also add a background image using the lbd.sidebar_image config key
     -->
     <div class="sidebar-wrapper">
+        @php($homeUrl = Route::has('lbd.dashboard') ? route('lbd.dashboard') : url('/'))
         <div class="logo">
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-mini">
+            <a href="{{ $homeUrl }}" class="simple-text logo-mini">
                 {{ config('lbd.logo_mini') }}
             </a>
-            <a href="{{ route('lbd.dashboard') }}" class="simple-text logo-normal">
+            <a href="{{ $homeUrl }}" class="simple-text logo-normal">
                 {{ config('lbd.logo_full') }}
             </a>
         </div>
