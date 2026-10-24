@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 7.0.0 - 2026-10-24
+
 **Breaking:** the layout no longer renders the template's placeholder sidebar user, navbar search form, dropdowns, notifications or user menu, nor the `sidebar-5.jpg` background, unless `lbd.load_demo_content` is enabled. See the README for the new hooks.
 
 **Breaking:** bootstrap-tagsinput has been replaced by [Tom Select](https://tom-select.js.org/) 2.6.2. Inputs with `data-role="tagsinput"` are no longer initialised automatically and `$(...).tagsinput()` no longer exists; push `vendor/lbd/css/tom-select.bootstrap4.min.css` and `vendor/lbd/js/plugins/tom-select.complete.min.js` and call `new TomSelect(el, { create: true, persist: false, delimiter: ',' })` instead (see `extended-form.blade.php`). Give the input the `tagsinput` class (plus `badge-azure`, `badge-fill`, etc.) to keep the dashboard tag styling. Submitted values are still comma-separated.
@@ -18,9 +20,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - README: install, asset/config/view publishing, configuration reference, layout sections and stacks, `lbd::inc.box` / `lbd::inc.card` components and lavary/laravel-menu setup.
 - README: note on using `@push('scripts')` / `@push('styles')` instead of overriding `@section('scripts')` / `@section('styles')`.
 
-### Deprecated
-- Nothing
-
 ### Fixed
 - Layouts no longer throw `Route [lbd.dashboard] not defined` when demo content is disabled
 - Demo routes now use the `web` middleware group
@@ -29,7 +28,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - README usage section no longer shows skeleton code for a class that does not exist.
 - Package description no longer says "Laravel 5"; the package supports Laravel 5.7 to 12.
 - `homepage` in `composer.json` and README links now point to `RenderbitTechnologies/Light-Bootstrap-Dashboard`.
-- `extra.branch-alias.dev-master` is now `6.x-dev`, matching the version matrix.
+- `extra.branch-alias.dev-master` is now `7.x-dev`, matching the version matrix.
 
 ### Removed
 - Hardcoded demo content from `inc/sidebar.blade.php`, `inc/navbar.blade.php` and `inc/navbar-full.blade.php` (moved to `inc/demo.blade.php`)
