@@ -3,11 +3,9 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
-
 [![PHP Version][ico-php]][link-packagist]
 [![Laravel Version][ico-laravel]][link-packagist]
 [![Bootstrap Version][ico-bootstrap]][link-bootstrap]
-[![Laravel Menu][ico-laravel-menu]][link-laravel-menu]
 
 [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) by Creative Tim, packaged as Blade layouts, partials and components for Laravel 5.7 to 12.
 
