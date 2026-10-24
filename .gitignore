@@ -22,3 +22,9 @@ Homestead.json
 
 #IDE
 .idea/
+
+# Testing
+/phpunit.xml
+/phpcs.xml
+.phpunit.result.cache
+/.phpunit.cache/

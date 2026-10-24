@@ -7,117 +7,145 @@ use Menu;
 
 class LightBootstrapDashboardController extends Controller
 {
-    public function __construct() {
-        if(config('lbd.load_demo_content')) {
+    public function __construct()
+    {
+        if (config('lbd.load_demo_content')) {
             $this->setupMenus();
         }
     }
 
-    public function getDashboard() {
+    public function getDashboard()
+    {
         return view('lbd::dashboard');
     }
 
-    public function getButtons() {
+    public function getButtons()
+    {
         return view('lbd::buttons');
     }
 
-    public function getGrid() {
+    public function getGrid()
+    {
         return view('lbd::grid');
     }
 
-    public function getPanels() {
+    public function getPanels()
+    {
         return view('lbd::panels');
     }
 
-    public function getSweetAlert() {
+    public function getSweetAlert()
+    {
         return view('lbd::sweet-alert');
     }
 
-    public function getNotifications() {
+    public function getNotifications()
+    {
         return view('lbd::notifications');
     }
 
-    public function getIcons() {
+    public function getIcons()
+    {
         return view('lbd::icons');
     }
 
-    public function getTypography() {
+    public function getTypography()
+    {
         return view('lbd::typography');
     }
 
-    public function getRegularForm() {
+    public function getRegularForm()
+    {
         return view('lbd::regular-form');
     }
 
-    public function getExtendedForm() {
+    public function getExtendedForm()
+    {
         return view('lbd::extended-form');
     }
 
-    public function getValidationForm() {
+    public function getValidationForm()
+    {
         return view('lbd::validation-form');
     }
 
-    public function getWizard() {
+    public function getWizard()
+    {
         return view('lbd::wizard');
     }
 
-    public function getRegularTable() {
+    public function getRegularTable()
+    {
         return view('lbd::regular-table');
     }
 
-    public function getExtendedTable() {
+    public function getExtendedTable()
+    {
         return view('lbd::extended-table');
     }
 
-    public function getBootstrapTable() {
+    public function getBootstrapTable()
+    {
         return view('lbd::bootstrap-table');
     }
 
-    public function getDatatables() {
+    public function getDatatables()
+    {
         return view('lbd::datatables');
     }
 
-    public function getLogin() {
+    public function getLogin()
+    {
         return view('lbd::login');
     }
 
-    public function getRegister() {
+    public function getRegister()
+    {
         return view('lbd::register');
     }
 
-    public function getLockScreen() {
+    public function getLockScreen()
+    {
         return view('lbd::lock-screen');
     }
 
-    public function getUser() {
+    public function getUser()
+    {
         return view('lbd::user');
     }
 
-    public function getBlank() {
+    public function getBlank()
+    {
         return view('lbd::blank');
     }
 
-    public function getCharts() {
+    public function getCharts()
+    {
         return view('lbd::charts');
     }
 
-    public function getCalendar() {
+    public function getCalendar()
+    {
         return view('lbd::calendar');
     }
 
-    public function getGoogleMap() {
+    public function getGoogleMap()
+    {
         return view('lbd::google-map');
     }
 
-    public function getVectorMap() {
+    public function getVectorMap()
+    {
         return view('lbd::vector-map');
     }
 
-    public function getFullscreenMap() {
+    public function getFullscreenMap()
+    {
         return view('lbd::fullscreen-map');
     }
 
-    protected function setupMenus() {
+    protected function setupMenus()
+    {
         // Sidebar
         Menu::make('sidebar_user_menu', function ($menu) {
             $menu->add('')
@@ -137,7 +165,7 @@ class LightBootstrapDashboardController extends Controller
             $menu->add('')
                 ->prepend('<span class="sidebar-mini">S</span>')
                 ->append('<span class="sidebar-normal">Settings</span>')
-                    ->link
+                ->link
                     ->attr(['class' => 'profile-dropdown'])
                     ->href('javascript:void(0)');
         });
@@ -159,11 +187,15 @@ class LightBootstrapDashboardController extends Controller
             $components->add('<span class="sidebar-normal">Panels</span>', ['route' => 'lbd.components.panels'])
                 ->before('<span class="sidebar-mini">P</span>');
 
-            $components->add('<span class="sidebar-normal">Sweet Alert</span>', ['route' => 'lbd.components.sweet-alert'])
-                ->before('<span class="sidebar-mini">SA</span>');
+            $components->add(
+                '<span class="sidebar-normal">Sweet Alert</span>',
+                ['route' => 'lbd.components.sweet-alert']
+            )->before('<span class="sidebar-mini">SA</span>');
 
-            $components->add('<span class="sidebar-normal">Notifications</span>', ['route' => 'lbd.components.notifications'])
-                ->before('<span class="sidebar-mini">N</span>');
+            $components->add(
+                '<span class="sidebar-normal">Notifications</span>',
+                ['route' => 'lbd.components.notifications']
+            )->before('<span class="sidebar-mini">N</span>');
 
             $components->add('<span class="sidebar-normal">Icons</span>', ['route' => 'lbd.components.icons'])
                 ->before('<span class="sidebar-mini">I</span>');
@@ -197,8 +229,10 @@ class LightBootstrapDashboardController extends Controller
             $tables->add('<span class="sidebar-normal">Extended Table</span>', ['route' => 'lbd.tables.extended-table'])
                 ->before('<span class="sidebar-mini">ET</span>');
 
-            $tables->add('<span class="sidebar-normal">Bootstrap Table</span>', ['route' => 'lbd.tables.bootstrap-table'])
-                ->before('<span class="sidebar-mini">BT</span>');
+            $tables->add(
+                '<span class="sidebar-normal">Bootstrap Table</span>',
+                ['route' => 'lbd.tables.bootstrap-table']
+            )->before('<span class="sidebar-mini">BT</span>');
 
             $tables->add('<span class="sidebar-normal">DataTables.Net</span>', ['route' => 'lbd.tables.datatables'])
                 ->before('<span class="sidebar-mini">DT</span>');

@@ -12,6 +12,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - `lbd.home_url` config option (`LBD_HOME_URL`) for the logo and navbar brand links
 - `sidebar-user` section and `navbar-left` / `navbar-right` / `navbar-full` stacks for filling the layout chrome from your own views
 - `lbd.sidebar_image` config key for the sidebar background image
+- PHPUnit test suite (Orchestra Testbench) and a GitHub Actions workflow running it across the supported PHP and Laravel versions, plus a PSR-2 style check.
 
 ### Deprecated
 - Nothing
