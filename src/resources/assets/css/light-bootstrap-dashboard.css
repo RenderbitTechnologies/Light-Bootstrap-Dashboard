@@ -4583,178 +4583,106 @@ fieldset[disabled] .form-control {
     color: #fff !important;
 }
 
-.bootstrap-tagsinput {
+/*           Tags input (Tom Select)           */
+
+.ts-wrapper.tagsinput .ts-control {
+    padding: 0;
+    border: none;
+    background-color: transparent;
     overflow-y: auto;
     text-align: left;
 }
 
-.bootstrap-tagsinput .badge {
+.ts-wrapper.tagsinput .ts-control>input {
+    color: #333333;
+    min-width: 40px;
+    height: 30px;
+}
+
+.ts-wrapper.multi.tagsinput .ts-control>.item {
     cursor: pointer;
     overflow: hidden;
-    position: relative;
     margin: 5px 3px 5px 0;
-    padding: 4px 18px !important;
-    padding: 2px 12px;
+    padding: 4px 18px;
     border: 1px solid #888888;
     border-radius: 3px;
     color: #888888;
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 12px;
+    line-height: 1.5;
     text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
     background-color: transparent;
-    border: 1px solid #888888;
-    font-size: 12px !important;
 }
 
-.bootstrap-tagsinput .badge.badge-blue,
-.bootstrap-tagsinput .badge.badge-blue .tagsinput-remove-link {
+.ts-wrapper.tagsinput.plugin-remove_button:not(.rtl) .item {
+    padding-right: 6px !important;
+}
+
+.ts-wrapper.tagsinput.plugin-remove_button:not(.rtl) .item .remove {
+    border-left: none;
+    margin-left: 6px;
+    padding: 0 4px;
+    border-radius: 3px;
+    opacity: 0.6;
+}
+
+.ts-wrapper.tagsinput.plugin-remove_button .item .remove:hover {
+    background: transparent;
+    opacity: 1;
+}
+
+.ts-wrapper.multi.tagsinput .ts-control>.item.active {
+    opacity: 0.75;
+}
+
+.ts-wrapper.multi.tagsinput.badge-blue .ts-control>.item {
     border-color: #447DF7;
     color: #447DF7;
 }
 
-.bootstrap-tagsinput .badge.badge-azure,
-.bootstrap-tagsinput .badge.badge-azure .tagsinput-remove-link {
+.ts-wrapper.multi.tagsinput.badge-azure .ts-control>.item {
     border-color: #23CCEF;
     color: #23CCEF;
 }
 
-.bootstrap-tagsinput .badge.badge-green .tag,
-.bootstrap-tagsinput .badge.badge-green .tagsinput-remove-link {
+.ts-wrapper.multi.tagsinput.badge-green .ts-control>.item {
     border-color: #87CB16;
     color: #87CB16;
 }
 
-.bootstrap-tagsinput .badge.badge-orange .tag,
-.bootstrap-tagsinput .badge.badge-orange .tagsinput-remove-link {
+.ts-wrapper.multi.tagsinput.badge-orange .ts-control>.item {
     border-color: #FFA534;
     color: #FFA534;
 }
 
-.bootstrap-tagsinput .badge.badgebadge-red .tag,
-.bootstrap-tagsinput .badge.badgebadge-red .tagsinput-remove-link {
+.ts-wrapper.multi.tagsinput.badge-red .ts-control>.item {
     border-color: #FB404B;
     color: #FB404B;
 }
 
-.bootstrap-tagsinput .badge .badge-remove-link {
-    -webkit-transition: all 60ms ease-in;
-    -moz-transition: all 60ms ease-in;
-    -o-transition: all 60ms ease-in;
-    -ms-transition: all 60ms ease-in;
-    transition: all 60ms ease-in;
-}
-
-.bootstrap-tagsinput .badge:hover {
-    padding-left: 10px;
-    padding-right: 18px;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.bootstrap-tagsinput .badge:hover .badge-remove-link {
-    opacity: 1 !important;
-    color: black;
-    padding-right: 6px;
-}
-
-.bootstrap-tagsinput .tagsinput-add {
-    color: #333333;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    padding: 5px 6px;
-    vertical-align: top;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-}
-
-.bootstrap-tagsinput .tagsinput-add:hover,
-.bootstrap-tagsinput .tagsinput-add:focus {
-    opacity: 1;
-    filter: alpha(opacity=100);
-}
-
-.bootstrap-tagsinput .tagsinput-add:before {
-    content: "\f067";
-    font-family: "FontAwesome";
-}
-
-.bootstrap-tagsinput .badge-remove-link {
-    cursor: pointer;
-    font-size: 12px;
-    padding: 3px 0;
-    position: absolute;
-    right: -3px;
-    opacity: 0;
-    text-align: right;
-    text-decoration: none;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-}
-
-.bootstrap-tagsinput .tag:hover .tagsinput-remove-link {
-    opacity: 1;
-    padding-right: 6px;
-}
-
-.bootstrap-tagsinput .badge-remove-link:before {
-    content: "\f00d";
-    font-family: "FontAwesome";
-    color: #23CCEF;
-}
-
-.bootstrap-tagsinput .tagsinput-add-container {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.bootstrap-tagsinput input {
-    background: transparent;
-    border: none;
-    color: #333333;
-    margin: 0;
-    outline: medium none !important;
-    padding: 0 0 0 5px;
-    vertical-align: top;
-    width: 40px;
-    height: 30px;
-}
-
-.bootstrap-tagsinput.badge-fill .badge-blue {
-    border-color: #447DF7;
+.ts-wrapper.multi.tagsinput.badge-fill .ts-control>.item {
     color: #FFFFFF;
+    background-color: #888888;
+}
+
+.ts-wrapper.multi.tagsinput.badge-fill.badge-blue .ts-control>.item {
     background-color: #447DF7;
 }
 
-.bootstrap-tagsinput.badge-fill .badge-azure {
-    border-color: #23CCEF;
-    color: #FFFFFF;
+.ts-wrapper.multi.tagsinput.badge-fill.badge-azure .ts-control>.item {
     background-color: #23CCEF;
 }
 
-.bootstrap-tagsinput.badge-fill.badge-green {
-    border-color: #87CB16;
-    color: #FFFFFF;
+.ts-wrapper.multi.tagsinput.badge-fill.badge-green .ts-control>.item {
     background-color: #87CB16;
 }
 
-.bootstrap-tagsinput.badge-fill.badge-orange {
-    border-color: #FFA534;
-    color: #FFFFFF;
+.ts-wrapper.multi.tagsinput.badge-fill.badge-orange .ts-control>.item {
     background-color: #FFA534;
 }
 
-.bootstrap-tagsinput.badge-fill.badge-red {
-    border-color: #FB404B;
-    color: #FFFFFF;
+.ts-wrapper.multi.tagsinput.badge-fill.badge-red .ts-control>.item {
     background-color: #FB404B;
-}
-
-.bootstrap-tagsinput.badge-fill .tagsinput-remove-link {
-    color: #FFFFFF;
 }
 
 /*            Navigation menu                */
