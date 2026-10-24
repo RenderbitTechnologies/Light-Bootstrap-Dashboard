@@ -171,7 +171,7 @@ The layouts only load jQuery, Popper, Bootstrap and `light-bootstrap-dashboard.j
 @endpush
 ```
 
-The bundled plugins are in `public/vendor/lbd/js/plugins` after publishing: `bootstrap-datetimepicker.js`, `bootstrap-notify.js`, `bootstrap-selectpicker.js`, `bootstrap-switch.js`, `bootstrap-table.js`, `bootstrap-tagsinput.js`, `chartist.min.js`, `fullcalendar.min.js`, `jquery-jvectormap.js`, `jquery.bootstrap-wizard.js`, `jquery.dataTables.min.js`, `jquery.validate.min.js`, `moment.min.js`, `nouislider.js` and `sweetalert2.min.js`. The demo views (`src/resources/views/*.blade.php`) show which files each page needs.
+The bundled plugins are in `public/vendor/lbd/js/plugins` after publishing: `bootstrap-datetimepicker.js`, `bootstrap-notify.js`, `bootstrap-selectpicker.js`, `bootstrap-switch.js`, `bootstrap-table.js`, `chartist.min.js`, `fullcalendar.min.js`, `jquery-jvectormap.js`, `jquery.bootstrap-wizard.js`, `jquery.dataTables.min.js`, `jquery.validate.min.js`, `moment.min.js`, `nouislider.js`, `sweetalert2.min.js` and `tom-select.complete.min.js` (Tom Select also needs `vendor/lbd/css/tom-select.bootstrap4.min.css`, pushed onto `styles`). The demo views (`src/resources/views/*.blade.php`) show which files each page needs.
 
 ### Layout chrome
 
