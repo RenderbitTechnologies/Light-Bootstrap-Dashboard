@@ -6,8 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## NEXT - YYYY-MM-DD
 
+**Breaking:** the layout no longer renders the template's placeholder sidebar user, navbar search form, dropdowns, notifications or user menu, nor the `sidebar-5.jpg` background, unless `lbd.load_demo_content` is enabled. See the README for the new hooks.
+
 ### Added
 - `lbd.home_url` config option (`LBD_HOME_URL`) for the logo and navbar brand links
+- `sidebar-user` section and `navbar-left` / `navbar-right` stacks for filling the layout chrome from your own views
+- `lbd.sidebar_image` config key for the sidebar background image
 
 ### Deprecated
 - Nothing
@@ -15,9 +19,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 - Layouts no longer throw `Route [lbd.dashboard] not defined` when demo content is disabled
 - Demo routes now use the `web` middleware group
+- Invalid navbar markup (`<a>` and `<form>` elements as direct children of `<ul>`)
+- Sidebar minimize button now follows `lbd.sidebar_color` instead of always being orange
 
 ### Removed
-- Nothing
+- Hardcoded demo content from `inc/sidebar.blade.php` and `inc/navbar.blade.php` (moved to `inc/demo.blade.php`)
+- Unused `inc/demo-full.blade.php` view
 
 ### Security
-- Nothing
+- `google_maps_api_key` and `google_analytics_key` no longer fall back to hardcoded third-party values; the Google Maps script and the analytics snippet are only output when the respective key is set (#7)
+- Replace the legacy `ga.js` analytics snippet with GA4 `gtag.js` (#7)

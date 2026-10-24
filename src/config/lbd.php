@@ -23,9 +23,9 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY', 'AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU'),
+    'google_maps_api_key' => env('GOOGLE_MAPS_API_KEY'),
 
-    'google_analytics_key' => env('GOOGLE_ANALYTICS_KEY', 'UA-46172202-1'),
+    'google_analytics_key' => env('GOOGLE_ANALYTICS_KEY'),
 
     'load_demo_content' => env('LOAD_LBD_DEMO', false),
 
@@ -39,6 +39,10 @@ return [
 
     // data-color="purple | blue | green | orange | red"
     'sidebar_color' => 'orange',
+
+    // Path (relative to public/) of the sidebar background image, e.g. 'vendor/lbd/img/sidebar-5.jpg'.
+    // Leave null for no background image.
+    'sidebar_image' => null,
 
     'footer_logo' => 'Renderbit Tech',
 

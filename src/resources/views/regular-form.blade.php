@@ -11,7 +11,7 @@
                         <h4 class="card-title">Stacked Form</h4>
                     </div>
                     <div class="card-body ">
-                        <form method="#" action="#">
+                        <form action="#">
                             <div class="form-group">
                                 <label>Email address</label>
                                 <input type="email" placeholder="Enter email" class="form-control">
@@ -88,7 +88,7 @@
                         <h4 class="card-title">Form Elements</h4>
                     </div>
                     <div class="card-body ">
-                        <form method="get" action="http://demos.creative-tim.com/" class="form-horizontal">
+                        <form action="#" onsubmit="return false" class="form-horizontal">
                             <fieldset>
                                 <div class="form-group">
                                     <div class="row">
@@ -217,7 +217,7 @@
                         <h4 class="card-title">Input Variants</h4>
                     </div>
                     <div class="card-body ">
-                        <form method="get" action="http://demos.creative-tim.com/" class="form-horizontal">
+                        <form action="#" onsubmit="return false" class="form-horizontal">
                             <div class="row">
                                 <label class="col-sm-2 control-label">Custom Checkboxes &amp; radios</label>
                                 <div class="col-sm-4 col-sm-offset-1 checkbox-radios">
