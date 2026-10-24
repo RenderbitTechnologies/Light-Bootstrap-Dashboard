@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <form id="RegisterValidation" action="#" method="">
+                <form id="RegisterValidation" action="#">
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">Register Form</h4>
@@ -53,7 +53,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                <form id="LoginValidation" action="#" method="">
+                <form id="LoginValidation" action="#">
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title text-center">Login Form</h4>
@@ -81,7 +81,7 @@
                 </form>
             </div>
             <div class="col-md-12">
-                <form id="TypeValidation" class="form-horizontal" action="#" method="">
+                <form id="TypeValidation" class="form-horizontal" action="#">
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">Type Validation</h4>
@@ -155,7 +155,7 @@
                 </form>
             </div>
             <div class="col-md-12">
-                <form id="RangeValidation" class="form-horizontal" action="#" method="">
+                <form id="RangeValidation" class="form-horizontal" action="#">
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">Range Validation</h4>
