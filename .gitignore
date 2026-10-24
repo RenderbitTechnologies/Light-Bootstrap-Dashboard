@@ -23,6 +23,9 @@ Homestead.json
 #IDE
 .idea/
 
+# Composer (library: do not commit the lock file)
+composer.lock
+
 # Testing
 /phpunit.xml
 /phpcs.xml

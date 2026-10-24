@@ -2,12 +2,9 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5.
+[Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) by Creative Tim, packaged as Blade layouts, partials and components for Laravel 5.7 to 12.
 
 ## Version Matrix
 
@@ -22,22 +19,162 @@ Light Bootstrap Dashboard by Creative Tim, packaged as Blade files for Laravel 5
 
 ## Install
 
-Via Composer
+Via Composer:
 
 ``` bash
-$ composer require renderbit/light-bootstrap-dashboard
+composer require renderbit/light-bootstrap-dashboard
 ```
+
+The service provider (`RenderbitTechnologies\LightBootstrapDashboard\LightBootstrapDashboardServiceProvider`) is registered through Laravel package auto-discovery. The package also pulls in [lavary/laravel-menu](https://github.com/lavary/laravel-menu), which the sidebar, header and footer menus are built with.
+
+## Publish
+
+The CSS, JS, fonts and images have to be published to `public/vendor/lbd` before the layouts render correctly:
+
+``` bash
+php artisan vendor:publish --provider="RenderbitTechnologies\LightBootstrapDashboard\LightBootstrapDashboardServiceProvider" --tag=public
+```
+
+Optionally, publish the config files and the views:
+
+``` bash
+# config/lbd.php and config/sidebar-menu.php
+php artisan vendor:publish --provider="RenderbitTechnologies\LightBootstrapDashboard\LightBootstrapDashboardServiceProvider" --tag=config
+
+# resources/views/vendor/lbd
+php artisan vendor:publish --provider="RenderbitTechnologies\LightBootstrapDashboard\LightBootstrapDashboardServiceProvider" --tag=views
+```
+
+Published views in `resources/views/vendor/lbd` take precedence over the package's own, so you can edit any layout or partial there.
+
+Re-run the `--tag=public` command (with `--force`) after upgrading the package to pick up new assets.
+
+## Configuration
+
+### `config/lbd.php`
+
+| Key | `.env` variable | Default | Description |
+|-|-|-|-|
+| `google_maps_api_key` | `GOOGLE_MAPS_API_KEY` | `null` | API key for the Google Maps JavaScript API. The Maps script is only loaded when this is set. |
+| `google_analytics_key` | `GOOGLE_ANALYTICS_KEY` | `null` | Google Analytics (GA4) measurement ID, e.g. `G-XXXXXXXXXX`. The `gtag.js` snippet is only output when this is set. |
+| `load_demo_content` | `LOAD_LBD_DEMO` | `false` | Registers the demo routes (under `/lbd`, with the `web` middleware group) and the demo menus, and fills the layout chrome with the template's placeholder content (sidebar user, navbar search and dropdowns, the full-page navbar menu, the "fixed plugin" settings panel, the `sidebar-5.jpg` background). |
+| `home_url` | `LBD_HOME_URL` | `null` | Where the sidebar logo and the navbar brand link. When empty, they link to the demo dashboard if demo content is on, otherwise to `url('/')`. |
+| `logo_mini` | — | First two letters of `app.name`, uppercased | Text shown as the sidebar logo when the sidebar is minimized. |
+| `logo_full` | — | `app.name` | Text shown as the sidebar logo. |
+| `sidebar_color` | — | `orange` | Sidebar `data-color`: `black`, `azure`, `blue`, `purple`, `green`, `orange` or `red`. The sidebar minimize button follows this colour. |
+| `sidebar_image` | — | `null` | Sidebar background image, as a path relative to `public/` (e.g. `vendor/lbd/img/sidebar-5.jpg`). `null` means no image (the demo uses `sidebar-5.jpg`). |
+| `footer_logo` | — | `Renderbit Technologies` | Name in the footer's "made with ♥ by ..." credit. Set to `null` or `''` to hide the credit. |
+| `footer_link` | — | `https://renderbit.com` | Link for the footer credit. |
+
+The footer copyright line uses your app's `app.name` and `app.url`, and the page `<title>` is `@yield('title') | {{ config('app.name') }}`.
+
+### `config/sidebar-menu.php`
+
+Its keys are lavary/laravel-menu settings per menu name, and they are layered over `laravel-menu.settings` when the package boots, so a published copy takes effect. By default it only sets `activate_parents` to `false` for `sidebar_main_menu`. See the [lavary/laravel-menu configuration docs](https://github.com/lavary/laravel-menu#configuration) for the available settings.
+
+### Demo pages
+
+To browse every page of the theme, set `LOAD_LBD_DEMO=true` in `.env` and visit `/lbd/dashboard`. The demo routes are named `lbd.*` (for example `lbd.dashboard`, `lbd.components.buttons`, `lbd.pages.login`); run `php artisan route:list --name=lbd` to see them all. The demo views (`lbd::dashboard`, `lbd::charts`, `lbd::login`, ...) are good references for the markup each component needs.
 
 ## Usage
 
-``` php
-$skeleton = new RenderbitTechnologies\LightBootstrapDashboard();
-echo $skeleton->echoPhrase('Hello, League!');
+### Layouts
+
+There are two layouts:
+
+- `lbd::layout`: the dashboard layout, with sidebar, top navbar and footer.
+- `lbd::layout-full`: a full-page layout without the sidebar, used for login, register and lock screen pages.
+
+``` blade
+@extends('lbd::layout')
+
+@section('title', 'Orders')
+
+@push('styles')
+    <link href="{{ asset('css/orders.css') }}" rel="stylesheet">
+@endpush
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                ...
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+    <script>
+        $(function () {
+            // jQuery, Popper and Bootstrap are loaded at this point
+        });
+    </script>
+@endpush
 ```
 
-### Customizing the layout chrome
+Sections and stacks available in both layouts:
 
-The sidebar and navbar are empty by default. Fill them from your own views:
+| Name | Type | Description |
+|-|-|-|
+| `title` | section | Page title, used in `<title>` and (in `lbd::layout`) in the navbar. |
+| `content` | section | The page body. |
+| `meta` | stack | Extra `<meta>` / `<link>` tags in `<head>`, before the theme CSS. |
+| `styles` | stack | Extra `<head>` tags, output after the theme CSS. |
+| `scripts` | stack | Extra scripts, output after jQuery, Popper, Bootstrap and `light-bootstrap-dashboard.js`. |
+
+`lbd::layout-full` also yields:
+
+| Name | Type | Description |
+|-|-|-|
+| `background_color` | section | Filter colour of the full-page background: `black`, `blue`, `purple`, `green`, `orange`, `red` or `rose`. |
+| `background_image` | section | URL of the full-page background image. |
+
+``` blade
+@extends('lbd::layout-full')
+
+@section('title', 'Login')
+@section('background_color', 'black')
+@section('background_image', asset('vendor/lbd/img/full-screen-image-2.jpg'))
+
+@section('content')
+    ...
+@endsection
+```
+
+#### Use `@push`, not `@section`, for styles and scripts
+
+`inc/head` and `inc/scripts` wrap the theme's CSS and JS in `@section('styles') ... @show` and `@section('scripts') ... @show`. If a page defines `@section('scripts')` (or `@section('styles')`) itself, it **replaces** that whole block, which removes jQuery, Popper, Bootstrap and the theme JS (or CSS). Use `@push('scripts')` / `@push('styles')` to add to the page instead.
+
+If you do need to override the section, call `@parent` to keep the theme's assets:
+
+``` blade
+@section('scripts')
+    @parent
+    <script src="{{ asset('js/extra.js') }}"></script>
+@endsection
+```
+
+#### Theme plugins
+
+The layouts only load jQuery, Popper, Bootstrap and `light-bootstrap-dashboard.js` (plus the Google Maps script when `lbd.google_maps_api_key` is set). Push the plugins a page uses onto the `scripts` stack, before the code that uses them:
+
+``` blade
+@push('scripts')
+    <script src="{{ asset('vendor/lbd/js/plugins/chartist.min.js') }}"></script>
+    <script>
+        $(function () {
+            new Chartist.Line('#chart', { labels: ['Mon', 'Tue'], series: [[5, 3]] });
+        });
+    </script>
+@endpush
+```
+
+The bundled plugins are in `public/vendor/lbd/js/plugins` after publishing: `bootstrap-datetimepicker.js`, `bootstrap-notify.js`, `bootstrap-selectpicker.js`, `bootstrap-switch.js`, `bootstrap-table.js`, `chartist.min.js`, `fullcalendar.min.js`, `jquery-jvectormap.js`, `jquery.bootstrap-wizard.js`, `jquery.dataTables.min.js`, `jquery.validate.min.js`, `moment.min.js`, `nouislider.js`, `sweetalert2.min.js` and `tom-select.complete.min.js` (Tom Select also needs `vendor/lbd/css/tom-select.bootstrap4.min.css`, pushed onto `styles`). The demo views (`src/resources/views/*.blade.php`) show which files each page needs.
+
+### Layout chrome
+
+The sidebar user block and the navbar menus are empty by default. Fill them from your own views:
 
 ``` blade
 @extends('lbd::layout')
@@ -57,13 +194,136 @@ The sidebar and navbar are empty by default. Fill them from your own views:
 @endpush
 ```
 
-- `sidebar-user` (section): the user block below the sidebar logo.
-- `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists.
-- `navbar-full` (stack): `<li>` items rendered in the navbar of the full-page layout (`lbd::layout-full`, used by the login, register and lock screen pages).
+- `sidebar-user` (section): the user block below the sidebar logo (`lbd::layout`).
+- `navbar-left` / `navbar-right` (stacks): `<li>` items rendered in the left and right navbar lists (`lbd::layout`).
+- `navbar-full` (stack): `<li>` items rendered in the navbar of `lbd::layout-full` (used by the login, register and lock screen pages).
 - `lbd.sidebar_color` and `lbd.sidebar_image` config keys set the sidebar colour and background image.
 - `lbd.home_url` config key (`LBD_HOME_URL`) sets where the sidebar logo and navbar brand link; it defaults to the demo dashboard when demo content is enabled and to `url('/')` otherwise.
 
 The template's placeholder user, search form, dropdowns and notifications are only shown when `lbd.load_demo_content` is enabled.
+
+### Components
+
+#### `lbd::inc.box`
+
+A card with an optional header and footer.
+
+``` blade
+@component('lbd::inc.box')
+    @slot('title', 'Email Statistics')
+    @slot('subtitle', 'Last Campaign Performance')
+
+    @slot('body')
+        <div id="chartEmail" class="ct-chart"></div>
+    @endslot
+
+    @slot('footer')
+        <div class="stats"><i class="fa fa-clock-o"></i> Campaign sent 2 days ago</div>
+    @endslot
+@endcomponent
+```
+
+| Slot | Required | Description |
+|-|-|-|
+| `body` | yes | Card body. |
+| `title` | no | Header title. The header is only rendered when this is set. |
+| `subtitle` | no | Header subtitle (needs `title`). |
+| `footer` | no | Card footer. |
+| `class_list` | no | Extra classes on `.card`. |
+| `body_class_list` | no | Extra classes on `.card-body`. |
+
+#### `lbd::inc.card`
+
+A stats card with an icon, a number and a footer line.
+
+``` blade
+@component('lbd::inc.card')
+    @slot('title', '$ 1,345')
+    @slot('category', 'Revenue')
+    @slot('icon', 'nc-icon nc-light-3 text-success')
+    @slot('footer_icon', 'fa fa-calendar-o')
+    @slot('footer', 'Last day')
+@endcomponent
+```
+
+| Slot | Required | Description |
+|-|-|-|
+| `title` | yes | The big number or value. |
+| `category` | yes | Label shown above the value. |
+| `icon` | yes | Icon classes, e.g. `nc-icon nc-chart text-warning`. |
+| `footer_icon` | yes | Footer icon classes, e.g. `fa fa-refresh`. |
+| `footer` | yes | Footer text. |
+| `class_list` | no | Classes on `.card`; defaults to `card-stats`. |
+
+### Menus
+
+The layouts render menus built with [lavary/laravel-menu](https://github.com/lavary/laravel-menu). Each menu is only rendered if it exists, so define the ones you need:
+
+| Menu name | Where it is rendered |
+|-|-|
+| `sidebar_main_menu` | Main sidebar navigation (`lbd::layout`). Supports one level of nested items, shown as collapsible groups. |
+| `sidebar_user_menu` | Dropdown under the demo's sidebar user block. Only rendered when `lbd.load_demo_content` is on; otherwise render it yourself in the `sidebar-user` section (see below). |
+| `site_header_menu` | Navbar links in `lbd::layout-full`. Only rendered when `lbd.load_demo_content` is on; otherwise push your own `<li>` items onto the `navbar-full` stack. |
+| `site_footer_menu` | Footer links (both layouts). |
+
+Define them before the view renders, for example in a middleware applied to your dashboard routes:
+
+``` php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Lavary\Menu\Facade as Menu;
+
+class BuildDashboardMenus
+{
+    public function handle($request, Closure $next)
+    {
+        Menu::make('sidebar_main_menu', function ($menu) {
+            $menu->add('Dashboard', ['route' => 'dashboard'])
+                ->before('<i class="nc-icon nc-chart-pie-35"></i>');
+
+            // A parent item needs an "#id" href: it is used as the id of the collapsible group.
+            $orders = $menu->add('Orders')->before('<i class="nc-icon nc-cart-simple"></i>');
+            $orders->link->href('#ordersMenu');
+
+            $orders->add('<span class="sidebar-normal">All orders</span>', ['route' => 'orders.index'])
+                ->before('<span class="sidebar-mini">AO</span>');
+            $orders->add('<span class="sidebar-normal">New order</span>', ['route' => 'orders.create'])
+                ->before('<span class="sidebar-mini">NO</span>');
+        });
+
+        Menu::make('sidebar_user_menu', function ($menu) {
+            $menu->add('')
+                ->prepend('<span class="sidebar-mini">MP</span>')
+                ->append('<span class="sidebar-normal">My Profile</span>')
+                ->link->href(route('profile'));
+        });
+
+        return $next($request);
+    }
+}
+```
+
+Outside demo mode the layout doesn't render `sidebar_user_menu` for you. Output it from your `sidebar-user` section:
+
+``` blade
+@section('sidebar-user')
+<div class="user">
+    <div class="info">
+        <a data-toggle="collapse" href="#userMenu" class="collapsed">
+            <span>{{ auth()->user()->name }} <b class="caret"></b></span>
+        </a>
+        <div class="collapse" id="userMenu">
+            {!! Menu::get('sidebar_user_menu')->asUl(['class' => 'nav']) !!}
+        </div>
+    </div>
+</div>
+@endsection
+```
+
+The demo menus in `src/Controllers/LightBootstrapDashboardController.php` (`setupMenus()`) show more complete examples.
 
 ## Change log
 
@@ -74,9 +334,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 The test suite runs against the package with [Orchestra Testbench](https://github.com/orchestral/testbench).
 
 ``` bash
-$ composer test         # run the PHPUnit suite
-$ composer check-style  # check the sources against PSR-2
-$ composer fix-style    # fix what can be fixed automatically
+composer test         # run the PHPUnit suite
+composer check-style  # check the sources against PSR-2
+composer fix-style    # fix what can be fixed automatically
 ```
 
 ## Contributing
@@ -89,6 +349,7 @@ If you discover any security related issues, please email contact@renderbit.com 
 
 ## Credits
 
+- [Creative Tim](https://www.creative-tim.com) for the Light Bootstrap Dashboard theme
 - [Renderbit Technologies][link-author]
 - [All Contributors][link-contributors]
 
@@ -98,15 +359,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/renderbit/light-bootstrap-dashboard.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/RenderbitTechnologies/LightBootstrapDashboard/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/RenderbitTechnologies/LightBootstrapDashboard.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/RenderbitTechnologies/LightBootstrapDashboard.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/renderbit/light-bootstrap-dashboard.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/renderbit/light-bootstrap-dashboard
-[link-travis]: https://travis-ci.org/RenderbitTechnologies/LightBootstrapDashboard
-[link-scrutinizer]: https://scrutinizer-ci.com/g/RenderbitTechnologies/LightBootstrapDashboard/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/RenderbitTechnologies/LightBootstrapDashboard
 [link-downloads]: https://packagist.org/packages/renderbit/light-bootstrap-dashboard
 [link-author]: https://github.com/RenderbitTechnologies
-[link-contributors]: ../../contributors
+[link-contributors]: https://github.com/RenderbitTechnologies/Light-Bootstrap-Dashboard/graphs/contributors
