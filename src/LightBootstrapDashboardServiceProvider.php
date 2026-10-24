@@ -40,7 +40,7 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
         ], 'public');
 
         // Routes
-        if(config('lbd.load_demo_content')) {
+        if (config('lbd.load_demo_content')) {
             $this->loadRoutesFrom(__DIR__.'/routes.php');
         }
     }
@@ -53,11 +53,7 @@ class LightBootstrapDashboardServiceProvider extends ServiceProvider
     public function register()
     {
         // Config
-        $this->mergeConfigFrom(
-            __DIR__.'/config/lbd.php', 'lbd'
-        );
-        $this->mergeConfigFrom(
-            __DIR__.'/config/sidebar-menu.php', 'sidebar-menu'
-        );
+        $this->mergeConfigFrom(__DIR__.'/config/lbd.php', 'lbd');
+        $this->mergeConfigFrom(__DIR__.'/config/sidebar-menu.php', 'sidebar-menu');
     }
 }

@@ -70,8 +70,12 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
+The test suite runs against the package with [Orchestra Testbench](https://github.com/orchestral/testbench).
+
 ``` bash
-$ composer test
+$ composer test         # run the PHPUnit suite
+$ composer check-style  # check the sources against PSR-2
+$ composer fix-style    # fix what can be fixed automatically
 ```
 
 ## Contributing
