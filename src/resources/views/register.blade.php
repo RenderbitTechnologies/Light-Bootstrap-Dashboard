@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mr-auto">
-                        <form method="#" action="#">
+                        <form action="#">
                             <div class="card card-plain">
                                 <div class="content">
                                     <div class="form-group">

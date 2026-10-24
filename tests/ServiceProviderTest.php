@@ -23,6 +23,10 @@ class ServiceProviderTest extends TestCase
         $this->assertFalse(config('lbd.load_demo_content'));
         $this->assertSame(
             ['activate_parents' => false],
+            config('sidebar-menu.sidebar_main_menu')
+        );
+        $this->assertSame(
+            ['activate_parents' => false],
             config('laravel-menu.settings.sidebar_main_menu')
         );
     }

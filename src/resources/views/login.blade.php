@@ -9,7 +9,7 @@
 @section('content')
     <div class="container">
         <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-            <form class="form" method="" action="#">
+            <form class="form" action="#">
                 <div class="card card-login card-hidden">
                     <div class="card-header ">
                         <h3 class="header text-center">Login</h3>
