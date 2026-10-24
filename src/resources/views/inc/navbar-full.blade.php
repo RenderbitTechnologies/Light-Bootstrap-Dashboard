@@ -10,9 +10,9 @@
             </button>
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navbar">
-            @if(Menu::exists('site_header_menu'))
-                {!! Menu::get('site_header_menu')->asUl(['class' => 'navbar-nav']) !!}
-            @endif
+            <ul class="navbar-nav">
+                @stack('navbar-full')
+            </ul>
         </div>
     </div>
 </nav>

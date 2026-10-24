@@ -102,6 +102,11 @@
 @endsection
 
 @push('scripts')
+    <!--  Chartist Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/chartist.min.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         $().ready(function() {
             demo.initCharts();

@@ -3,7 +3,7 @@
 @endphp
 <div class="sidebar" data-color="{{ config('lbd.sidebar_color') }}"@if($sidebarImage) data-image="{{ asset($sidebarImage) }}"@endif>
     <!--
-        Tip 1: You can change the color of the sidebar using the lbd.sidebar_color config key: purple | blue | green | orange | red
+        Tip 1: You can change the color of the sidebar using the lbd.sidebar_color config key (supported values are listed in config/lbd.php)
 
         Tip 2: you can also add a background image using the lbd.sidebar_image config key
     -->

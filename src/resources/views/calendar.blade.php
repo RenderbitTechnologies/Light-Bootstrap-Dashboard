@@ -25,6 +25,15 @@
 @endsection
 
 @push('scripts')
+    <!--  Moment.js, required by the Date Time Picker and Full Calendar  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/moment.min.js') }}"></script>
+    <!--  Full Calendar  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/fullcalendar.min.js') }}"></script>
+    <!--  Sweet Alert  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/sweetalert2.min.js') }}"></script>
+@endpush
+
+@push('scripts')
     <script type="text/javascript">
         $().ready(function() {
             demo.initFullCalendar();
