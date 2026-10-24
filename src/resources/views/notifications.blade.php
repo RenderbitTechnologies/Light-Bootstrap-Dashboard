@@ -150,3 +150,8 @@
         <!--  End Modal -->
     </div>
 @endsection
+
+@push('scripts')
+    <!--  Notifications Plugin  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-notify.js') }}"></script>
+@endpush

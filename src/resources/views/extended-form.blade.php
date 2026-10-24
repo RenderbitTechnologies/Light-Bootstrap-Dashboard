@@ -179,3 +179,20 @@
         <!-- end card -->
     </div>
 @endsection
+
+@push('scripts')
+    @unless(config('lbd.load_demo_content'))
+    <!--  Plugin for Switches (already loaded by the demo fixed-plugin when demo content is enabled) -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-switch.js') }}"></script>
+    @endunless
+    <!--  Moment.js, required by the Date Time Picker and Full Calendar  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/moment.min.js') }}"></script>
+    <!--  DatetimePicker  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-datetimepicker.js') }}"></script>
+    <!--  Tags Input  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-tagsinput.js') }}"></script>
+    <!--  Sliders  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/nouislider.js') }}"></script>
+    <!--  Bootstrap Select  -->
+    <script src="{{ asset('vendor/lbd/js/plugins/bootstrap-selectpicker.js') }}"></script>
+@endpush
