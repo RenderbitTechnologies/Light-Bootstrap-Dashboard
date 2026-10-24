@@ -84,6 +84,12 @@
 </li>
 @endpush
 
+@push('navbar-full')
+@if(Menu::exists('site_header_menu'))
+{!! Menu::get('site_header_menu')->render('ul') !!}
+@endif
+@endpush
+
 @push('demo')
 <div class="fixed-plugin">
     <div class="dropdown show-dropdown">

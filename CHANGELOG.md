@@ -9,7 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 **Breaking:** the layout no longer renders the template's placeholder sidebar user, navbar search form, dropdowns, notifications or user menu, nor the `sidebar-5.jpg` background, unless `lbd.load_demo_content` is enabled. See the README for the new hooks.
 
 ### Added
-- `sidebar-user` section and `navbar-left` / `navbar-right` stacks for filling the layout chrome from your own views
+- `sidebar-user` section and `navbar-left` / `navbar-right` / `navbar-full` stacks for filling the layout chrome from your own views
 - `lbd.sidebar_image` config key for the sidebar background image
 
 ### Deprecated
@@ -20,7 +20,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Sidebar minimize button now follows `lbd.sidebar_color` instead of always being orange
 
 ### Removed
-- Hardcoded demo content from `inc/sidebar.blade.php` and `inc/navbar.blade.php` (moved to `inc/demo.blade.php`)
+- Hardcoded demo content from `inc/sidebar.blade.php`, `inc/navbar.blade.php` and `inc/navbar-full.blade.php` (moved to `inc/demo.blade.php`)
 - Unused `inc/demo-full.blade.php` view
 - `jquery.sharrre.js` and the share-button code in `light-bootstrap-dashboard.js` (the share-count APIs it used no longer exist).
 
