@@ -47,11 +47,6 @@ $(document).ready(function() {
     //  Activate the tooltips
     $('[rel="tooltip"]').tooltip();
 
-    // Init Tags Input
-    // if($(".tagsinput").length != 0){
-    //     $(".tagsinput").tagsInput();
-    // }
-
     //  Activate regular switches
     if ($.fn.bootstrapSwitch && $("[data-toggle='switch']").length != 0) {
         $("[data-toggle='switch']").bootstrapSwitch();
